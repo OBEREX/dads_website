@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications &amp; Blog — Dr. MKO Balogun</title>
+  <meta name="description" content="Articles, speeches, papers, book reviews and blog posts by Dr. MKO Balogun — Engineer, Entrepreneur and Facilities Management Expert.">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .filter-bar { background:var(--white); border-bottom:1px solid var(--border); padding:0 44px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0; }
+    .filter-tabs { display:flex; gap:0; overflow-x:auto; }
+    .ftab { padding:18px 22px; font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:#888; cursor:pointer; border-bottom:2px solid transparent; transition:color 0.2s, border-color 0.2s; white-space:nowrap; background:none; border-top:none; border-left:none; border-right:none; font-family:var(--sans); }
+    .ftab:hover { color:var(--navy); }
+    .ftab.active { color:var(--navy); border-bottom-color:var(--gold); }
+    .search-input { border:1px solid var(--border); border-radius:2px; padding:8px 14px; font-size:12px; font-family:var(--sans); color:#444; outline:none; width:200px; margin:8px 0; }
+    .featured-section { background:var(--white); padding:66px 44px; border-bottom:1px solid var(--border); }
+    .featured-card { display:grid; grid-template-columns:1fr 360px; border:1px solid var(--border); border-radius:2px; overflow:hidden; text-decoration:none; color:inherit; transition:border-color 0.2s; }
+    .featured-card:hover { border-color:var(--gold); }
+    .featured-content { padding:44px; }
+    .featured-badge { display:inline-block; background:var(--navy); color:var(--gold); font-size:9px; letter-spacing:0.16em; text-transform:uppercase; padding:5px 12px; border-radius:1px; margin-bottom:18px; }
+    .featured-title { font-family:var(--serif); font-size:30px; font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:16px; }
+    .featured-meta { display:flex; align-items:center; gap:18px; margin-bottom:20px; flex-wrap:wrap; }
+    .meta-tag  { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+    .meta-date { font-size:11px; color:var(--text-muted); }
+    .meta-sep  { width:1px; height:12px; background:#e0dbd0; }
+    .featured-excerpt { font-size:13px; color:#666; line-height:1.85; font-weight:300; margin-bottom:24px; }
+    .featured-img { background:var(--navy-mid); display:flex; align-items:center; justify-content:center; }
+    .featured-img-inner { width:100%; height:100%; min-height:300px; background:var(--navy-deep); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+    .img-ph-icon { width:56px; height:56px; border:1px solid rgba(200,185,122,0.25); border-radius:2px; display:flex; align-items:center; justify-content:center; }
+    .img-ph-icon svg { width:24px; height:24px; stroke:var(--gold); fill:none; stroke-width:1.5; }
+    .img-ph-label { font-size:10px; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; }
+    .articles-section { background:var(--cream); padding:79px 44px; }
+    .pub-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .speeches-section { background:var(--navy); padding:79px 44px; }
+    .speeches-list { display:flex; flex-direction:column; gap:1px; margin-top:44px; background:rgba(255,255,255,0.06); border-radius:3px; overflow:hidden; }
+    .speech-row { background:var(--navy); display:grid; grid-template-columns:80px 1fr auto; gap:28px; align-items:center; padding:28px 32px; border-bottom:1px solid rgba(255,255,255,0.06); transition:background 0.2s; text-decoration:none; color:inherit; }
+    .speech-row:last-child { border-bottom:none; }
+    .speech-row:hover { background:var(--navy-mid); }
+    .speech-year { font-family:var(--serif); font-size:16px; font-weight:600; color:var(--gold); }
+    .speech-type { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(200,185,122,0.6); margin-bottom:6px; display:block; }
+    .speech-title { font-family:var(--serif); font-size:18px; font-weight:600; color:var(--white); margin-bottom:6px; line-height:1.3; }
+    .speech-venue { font-size:12px; color:rgba(255,255,255,0.4); font-weight:300; }
+    .dl-btn { display:flex; align-items:center; gap:6px; padding:8px 16px; border:1px solid rgba(200,185,122,0.25); border-radius:2px; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); cursor:pointer; background:transparent; font-family:var(--sans); white-space:nowrap; text-decoration:none; transition:border-color 0.2s; }
+    .dl-btn:hover { border-color:var(--gold); }
+    .dl-btn svg { width:13px; height:13px; stroke:var(--gold); fill:none; stroke-width:1.5; }
+    .reviews-section { background:var(--white); padding:79px 44px; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px; }
+    .book-card { border:1px solid var(--border); border-radius:2px; overflow:hidden; transition:border-color 0.2s; cursor:pointer; }
+    .book-card:hover { border-color:var(--gold); }
+    .book-cover { background:var(--navy); height:180px; display:flex; align-items:center; justify-content:center; }
+    .book-cover-inner { width:80px; height:120px; background:var(--navy-mid); border:1px solid rgba(200,185,122,0.2); border-radius:2px; display:flex; align-items:center; justify-content:center; }
+    .book-cover-inner svg { width:26px; height:26px; stroke:rgba(200,185,122,0.4); fill:none; stroke-width:1; }
+    .book-info { padding:18px; }
+    .book-tag    { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
+    .book-title  { font-family:var(--serif); font-size:16px; font-weight:600; color:var(--navy); line-height:1.35; margin-bottom:5px; }
+    .book-author { font-size:11px; color:var(--text-muted); font-weight:300; margin-bottom:10px; }
+    .book-note   { font-size:11px; color:var(--text-light); line-height:1.65; font-weight:300; }
+    .blog-section { background:var(--cream); padding:79px 44px; }
+    .blog-grid { display:grid; grid-template-columns:2fr 1fr; gap:22px; margin-top:44px; }
+    .blog-mini { background:var(--white); border:1px solid var(--border); border-radius:2px; padding:20px; transition:border-color 0.2s; text-decoration:none; display:block; color:inherit; }
+    .blog-mini:hover { border-color:var(--gold); }
+    .blog-mini-tag   { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:7px; display:block; }
+    .blog-mini-title { font-family:var(--serif); font-size:15px; font-weight:600; color:var(--navy); line-height:1.4; margin-bottom:6px; }
+    .blog-mini-date  { font-size:10px; color:var(--text-muted); }
+    .blog-sidebar { display:flex; flex-direction:column; gap:16px; }
+    @media(max-width:1024px){
+      .featured-card { grid-template-columns:1fr; }
+      .featured-img { display:none; }
+      .pub-grid-3 { grid-template-columns:1fr 1fr; }
+      .reviews-grid { grid-template-columns:1fr 1fr; }
+      .blog-grid { grid-template-columns:1fr; }
+      .speech-row { grid-template-columns:60px 1fr; }
+      .speech-row .speech-action { grid-column:2; }
+    }
+    @media(max-width:640px){
+      .pub-grid-3 { grid-template-columns:1fr; }
+      .reviews-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div data-component="topbar"></div>
+<div data-component="navbar"></div>
+
+<section class="page-hero">
+  <span class="hero-tag">Publications &amp; Blog</span>
+  <h1>Ideas, Insights &amp;<br><em>Industry Leadership</em></h1>
+  <div class="divider"></div>
+  <p class="page-hero-sub">From peer-reviewed speeches and technical papers to press features and personal commentary — Dr. Balogun's complete body of published work, all in one place.</p>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-tabs">
+    <button class="ftab active" data-filter="all">All</button>
+    <button class="ftab" data-filter="press">Articles &amp; Press</button>
+    <button class="ftab" data-filter="speech">Speeches &amp; Papers</button>
+    <button class="ftab" data-filter="book">Book Reviews</button>
+    <button class="ftab" data-filter="blog">Blog</button>
+  </div>
+  <input class="search-input" type="text" id="pub-search" placeholder="Search publications...">
+</div>
+
+<!-- FEATURED -->
+<section class="featured-section" id="section-featured">
+  <div style="margin-bottom:28px;">
+    <span class="section-tag">Featured Publication</span>
+    <h2 class="section-title">Editor's Pick</h2>
+  </div>
+  <a href="blog/fm-high-rise-fire-prevention.html" class="featured-card" id="featured-article">
+    <div class="featured-content">
+      <span class="featured-badge">Featured · Speech</span>
+      <div class="featured-title" id="feat-title">The Role of Facility Managers in High-Rise Fire Prevention</div>
+      <div class="featured-meta">
+        <span class="meta-tag">Engineering / Safety</span>
+        <div class="meta-sep"></div>
+        <span class="meta-date">April 7–8, 2022</span>
+        <div class="meta-sep"></div>
+        <span class="meta-date">Tall Building Fire Safety Conference</span>
+      </div>
+      <p class="featured-excerpt" id="feat-excerpt">A landmark presentation exploring how facility management professionals serve as the critical first line of defence in high-rise fire safety. Includes data from international FM bodies and case studies from West African high-rises.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <span class="btn-primary">Read Full Paper</span>
+        <span class="btn-outline-dark" style="display:flex;align-items:center;gap:8px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </span>
+      </div>
+    </div>
+    <div class="featured-img">
+      <div class="featured-img-inner">
+        <div class="img-ph-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <span class="img-ph-label">Conference Paper · 2022</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- ARTICLES & PRESS -->
+<section class="articles-section" id="section-press">
+  <div class="flex-between" style="margin-bottom:44px;">
+    <div>
+      <span class="section-tag">Articles &amp; Press</span>
+      <h2 class="section-title">Latest Coverage &amp; Features</h2>
+    </div>
+    <a href="#" class="see-all">View all →</a>
+  </div>
+  <div class="pub-grid-3" id="articles-grid"></div>
+</section>
+
+<!-- SPEECHES & PAPERS -->
+<section class="speeches-section" id="section-speech">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag" style="color:var(--gold);">Speeches &amp; Papers</span>
+      <h2 class="section-title" style="color:var(--white);">Presentations &amp; Technical Work</h2>
+    </div>
+    <a href="#" class="see-all-light">View all →</a>
+  </div>
+  <div class="speeches-list" id="speeches-list"></div>
+</section>
+
+<!-- BOOK REVIEWS -->
+<section class="reviews-section" id="section-book">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag">Book Reviews</span>
+      <h2 class="section-title">What Dr. Balogun Is Reading</h2>
+    </div>
+    <a href="#" class="see-all">View all →</a>
+  </div>
+  <div class="reviews-grid" id="reviews-grid"></div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="section-blog">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag">Blog</span>
+      <h2 class="section-title">Personal Commentary &amp; Opinion</h2>
+    </div>
+    <a href="#" class="see-all">View all posts →</a>
+  </div>
+  <div class="blog-grid" id="blog-grid"></div>
+</section>
+
+<div class="newsletter-strip">
+  <div class="nl-left">
+    <h2>Stay updated with Dr. Balogun's <em>latest work</em></h2>
+    <p>New articles, speeches, and blog posts delivered to your inbox. No spam.</p>
+  </div>
+  <div>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="Your email address" id="nl-email">
+      <button class="nl-btn" onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <h2>Want Dr. Balogun to<br>speak at your <em>event</em>?</h2>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-primary">Book a Speaking Engagement</a>
+    <a href="contact.html" class="btn-outline-gold">Contact Us →</a>
+  </div>
+</div>
+
+<div data-component="footer"></div>
+
+<script src="../js/config.js"></script>
+<script src="../js/components.js"></script>
+<script src="../data/content.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Articles grid
+  document.getElementById("articles-grid").innerHTML = CONTENT.articles.map(a => `
+    <a href="blog/${a.slug}.html" id="${a.id}" class="pub-card">
+      <span class="pub-tag">${a.tag}</span>
+      <div class="pub-title">${a.title}</div>
+      <p class="pub-excerpt">${a.excerpt}</p>
+      <div class="pub-footer">
+        <span class="pub-date">${a.date}</span>
+        <span class="pub-read">Read →</span>
+      </div>
+    </a>`).join("");
+
+  // Speeches list
+  document.getElementById("speeches-list").innerHTML = CONTENT.speeches.map(s => `
+    <a href="blog/${s.slug}.html" class="speech-row">
+      <div class="speech-year">${s.dateISO.substring(0,4)}</div>
+      <div>
+        <span class="speech-type">${s.tag}</span>
+        <div class="speech-title">${s.title}</div>
+        <div class="speech-venue">${s.venue}</div>
+      </div>
+      <div class="speech-action">
+        ${s.downloadUrl
+          ? `<a href="${s.downloadUrl}" class="dl-btn" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF</a>`
+          : `<span class="dl-btn">Read →</span>`}
+      </div>
+    </a>`).join("");
+
+  // Book reviews
+  document.getElementById("reviews-grid").innerHTML = CONTENT.bookReviews.map(b => `
+    <div class="book-card" id="${b.id}">
+      <div class="book-cover"><div class="book-cover-inner"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div></div>
+      <div class="book-info">
+        <span class="book-tag">${b.tag}</span>
+        <div class="book-title">${b.title}</div>
+        <div class="book-author">${b.author}</div>
+        <p class="book-note">"${b.review}"</p>
+      </div>
+    </div>`).join("");
+
+  // Blog grid
+  const [featured, ...rest] = CONTENT.blogPosts;
+  document.getElementById("blog-grid").innerHTML = `
+    <div>
+      <a href="blog/${featured.slug}.html" class="pub-card">
+        <div style="background:var(--navy-mid);height:200px;display:flex;align-items:center;justify-content:center;margin:-28px -28px 22px;border-radius:2px 2px 0 0;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,185,122,0.3)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        </div>
+        <span class="pub-tag">${featured.tag}</span>
+        <div class="pub-title" style="font-size:22px;">${featured.title}</div>
+        <p class="pub-excerpt">${featured.excerpt}</p>
+        <div class="pub-footer">
+          <span class="pub-date">${featured.date}</span>
+          <span class="pub-read">Read Post →</span>
+        </div>
+      </a>
+    </div>
+    <div class="blog-sidebar">
+      ${rest.map(p => `
+        <a href="blog/${p.slug}.html" class="blog-mini">
+          <span class="blog-mini-tag">${p.tag}</span>
+          <div class="blog-mini-title">${p.title}</div>
+          <div class="blog-mini-date">${p.date}</div>
+        </a>`).join("")}
+    </div>`;
+
+  // Filter tabs
+  document.querySelectorAll(".ftab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".ftab").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.filter;
+      const sections = {
+        all: ["section-featured","section-press","section-speech","section-book","section-blog"],
+        press:  ["section-press"],
+        speech: ["section-speech"],
+        book:   ["section-book"],
+        blog:   ["section-blog"],
+      };
+      ["section-featured","section-press","section-speech","section-book","section-blog"].forEach(id => {
+        document.getElementById(id).style.display = (filter === "all" || sections[filter].includes(id)) ? "" : "none";
+      });
+    });
+  });
+
+  // Search
+  document.getElementById("pub-search").addEventListener("input", function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll(".pub-card, .speech-row, .book-card, .blog-mini").forEach(el => {
+      el.style.display = el.textContent.toLowerCase().includes(q) ? "" : "none";
+    });
+  });
+});
+
+function subscribeNewsletter() {
+  const email = document.getElementById("nl-email").value;
+  if (email) alert("Thank you! We'll be in touch at " + email);
+}
+</script>
+</body>
+</html>

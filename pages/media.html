@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media — Dr. MKO Balogun</title>
+  <meta name="description" content="Videos, photo galleries, presentations and press coverage featuring Dr. MKO Balogun.">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .media-tabs { background:var(--white); border-bottom:1px solid var(--border); padding:0 44px; display:flex; gap:0; overflow-x:auto; }
+    .mtab { padding:18px 22px; font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:#888; cursor:pointer; border-bottom:2px solid transparent; border-top:none; border-left:none; border-right:none; background:none; font-family:var(--sans); white-space:nowrap; transition:color 0.2s; }
+    .mtab:hover { color:var(--navy); }
+    .mtab.active { color:var(--navy); border-bottom-color:var(--gold); }
+    /* YT hero */
+    .yt-hero-grid { background:var(--navy); display:grid; grid-template-columns:1fr 420px; align-items:center; }
+    .yt-hero-left  { padding:79px 44px; }
+    .yt-hero-right { background:var(--navy-deep); min-height:380px; display:flex; align-items:center; justify-content:center; border-left:1px solid rgba(200,185,122,0.1); overflow:hidden; }
+    .yt-channel-badge { display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(200,185,122,0.25); border-radius:2px; padding:10px 18px; margin-top:22px; text-decoration:none; color:rgba(255,255,255,0.6); font-size:12px; }
+    .yt-channel-badge svg { width:18px; height:18px; fill:var(--gold); }
+    .yt-channel-badge strong { color:var(--gold); }
+    /* Video grid */
+    .video-grid-section { background:var(--cream); padding:79px 44px; }
+    .video-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px; }
+    /* Gallery */
+    .gallery-section { background:var(--white); padding:79px 44px; }
+    .ig-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-top:44px; }
+    .ig-item { aspect-ratio:1; background:var(--navy-mid); border-radius:2px; overflow:hidden; cursor:pointer; position:relative; transition:opacity 0.2s; display:block; }
+    .ig-item:hover { opacity:0.8; }
+    .ig-item-inner { width:100%; height:100%; background:var(--navy-deep); display:flex; align-items:center; justify-content:center; }
+    .ig-item-inner svg { width:22px; height:22px; stroke:rgba(200,185,122,0.2); fill:none; stroke-width:1; }
+    .ig-follow-row { display:flex; justify-content:space-between; align-items:center; margin-top:28px; padding:20px 24px; border:1px solid var(--border); border-radius:2px; background:var(--cream); flex-wrap:wrap; gap:14px; }
+    .ig-follow-text  { font-family:var(--serif); font-size:18px; font-weight:600; color:var(--navy); }
+    .ig-follow-handle{ font-size:12px; color:var(--text-muted); margin-top:3px; }
+    .ig-follow-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 22px; background:#000; color:var(--white); border-radius:2px; font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
+    .ig-follow-btn svg { width:14px; height:14px; stroke:var(--white); fill:none; stroke-width:1.5; }
+    /* Downloads */
+    .downloads-section { background:var(--cream); padding:79px 44px; }
+    .downloads-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
+    .download-card { background:var(--white); border:1px solid var(--border); border-radius:2px; padding:28px; display:flex; flex-direction:column; gap:18px; transition:border-color 0.2s; }
+    .download-card:hover { border-color:var(--gold); }
+    .dl-icon { width:48px; height:48px; border:1px solid var(--border); border-radius:2px; display:flex; align-items:center; justify-content:center; }
+    .dl-icon svg { width:22px; height:22px; stroke:var(--gold); fill:none; stroke-width:1.5; }
+    .dl-type  { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+    .dl-title { font-family:var(--serif); font-size:18px; font-weight:600; color:var(--navy); line-height:1.35; }
+    .dl-detail{ font-size:12px; color:#999; font-weight:300; }
+    .dl-footer{ display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-alt); padding-top:16px; margin-top:auto; }
+    .dl-size  { font-size:10px; color:var(--text-muted); }
+    .dl-btn-sm{ display:inline-flex; align-items:center; gap:6px; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy); font-weight:500; background:none; border:none; cursor:pointer; font-family:var(--sans); text-decoration:none; }
+    .dl-btn-sm svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.5; }
+    /* Press */
+    .press-section { background:var(--navy); padding:79px 44px; }
+    .press-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
+    .press-card { background:var(--navy-mid); border:1px solid rgba(200,185,122,0.1); border-radius:2px; padding:28px; transition:border-color 0.2s; text-decoration:none; display:block; color:inherit; }
+    .press-card:hover { border-color:rgba(200,185,122,0.35); }
+    .press-outlet  { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:12px; display:block; }
+    .press-headline{ font-family:var(--serif); font-size:18px; font-weight:600; color:var(--white); line-height:1.4; margin-bottom:10px; }
+    .press-excerpt { font-size:12px; color:rgba(255,255,255,0.4); line-height:1.75; font-weight:300; margin-bottom:18px; }
+    .press-footer  { display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); padding-top:14px; }
+    .press-date    { font-size:10px; color:rgba(255,255,255,0.25); }
+    .press-read    { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+    @media(max-width:1024px){
+      .yt-hero-grid { grid-template-columns:1fr; }
+      .yt-hero-right { display:none; }
+      .video-grid { grid-template-columns:1fr 1fr; }
+      .ig-grid { grid-template-columns:repeat(4,1fr); }
+      .downloads-grid { grid-template-columns:1fr 1fr; }
+      .press-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:640px){
+      .video-grid { grid-template-columns:1fr; }
+      .ig-grid { grid-template-columns:repeat(3,1fr); }
+      .downloads-grid { grid-template-columns:1fr; }
+      .press-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<div data-component="topbar"></div>
+<div data-component="navbar"></div>
+
+<section class="page-hero">
+  <span class="hero-tag">Media</span>
+  <h1>Watch, Listen &amp;<br><em>Explore</em></h1>
+  <div class="divider"></div>
+  <p class="page-hero-sub">Videos, photo galleries, conference presentations, and press coverage — everything in one place.</p>
+</section>
+
+<div class="media-tabs">
+  <button class="mtab active" data-section="youtube">YouTube</button>
+  <button class="mtab" data-section="gallery">Photo Gallery</button>
+  <button class="mtab" data-section="presentations">Presentations</button>
+  <button class="mtab" data-section="press">Press Coverage</button>
+</div>
+
+<!-- YOUTUBE HERO -->
+<div class="yt-hero-grid" id="section-youtube">
+  <div class="yt-hero-left">
+    <span class="section-tag" style="color:var(--gold);">YouTube Channel</span>
+    <h2 style="font-family:var(--serif);font-size:38px;font-weight:700;color:var(--white);line-height:1.15;margin:0;">Dr. Balogun<br><em style="font-style:italic;color:var(--gold);">On Video</em></h2>
+    <div class="divider"></div>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;font-weight:300;line-height:1.9;margin-bottom:28px;">Keynote addresses, panel discussions, mentorship sessions, and industry commentary. Subscribe to stay updated.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;">
+      <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="btn-primary">Subscribe to Channel</a>
+      <a href="#video-grid-section" class="btn-outline-gold">View All Videos →</a>
+    </div>
+    <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="yt-channel-badge">
+      <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#0f1c2e;"/></svg>
+      youtube.com/@mkobalogun — <strong>Subscribe for latest updates</strong>
+    </a>
+  </div>
+  <div class="yt-hero-right" id="yt-featured-media"></div>
+</div>
+
+<!-- VIDEO GRID -->
+<section class="video-grid-section" id="video-grid-section">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag">Recent Videos</span>
+      <h2 class="section-title">Latest from the Channel</h2>
+    </div>
+    <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="see-all">View all videos →</a>
+  </div>
+  <div class="video-grid" id="video-grid"></div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery-section" id="section-gallery">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag">Photo Gallery</span>
+      <h2 class="section-title">Events, Activities &amp; Milestones</h2>
+      <div class="divider"></div>
+    </div>
+    <a href="https://instagram.com/mkobalogun" target="_blank" rel="noopener" class="see-all">View on Instagram →</a>
+  </div>
+  <div class="ig-grid" id="ig-grid"></div>
+  <div class="ig-follow-row">
+    <div>
+      <div class="ig-follow-text">Follow @mkobalogun on Instagram</div>
+      <div class="ig-follow-handle">Events, activities, milestones &amp; more</div>
+    </div>
+    <a href="https://instagram.com/mkobalogun" target="_blank" rel="noopener" class="ig-follow-btn">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Follow on Instagram
+    </a>
+  </div>
+</section>
+
+<!-- PRESENTATIONS -->
+<section class="downloads-section" id="section-presentations">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag">Presentations &amp; Downloads</span>
+      <h2 class="section-title">Slide Decks &amp; Resources</h2>
+    </div>
+    <a href="publications.html#section-speech" class="see-all">View all →</a>
+  </div>
+  <div class="downloads-grid" id="downloads-grid"></div>
+</section>
+
+<!-- PRESS COVERAGE -->
+<section class="press-section" id="section-press">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div>
+      <span class="section-tag" style="color:var(--gold);">Press Coverage</span>
+      <h2 class="section-title" style="color:var(--white);">As Seen In the Media</h2>
+    </div>
+    <a href="publications.html" class="see-all-light">View all coverage →</a>
+  </div>
+  <div class="press-grid" id="press-grid"></div>
+</section>
+
+<div class="cta-strip">
+  <h2>Want to feature or<br>interview Dr. <em>Balogun</em>?</h2>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-primary">Media Enquiries</a>
+    <a href="contact.html" class="btn-outline-gold">Book a Speaking Slot →</a>
+  </div>
+</div>
+
+<div data-component="footer"></div>
+
+<script src="../js/config.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/youtube.js"></script>
+<script src="../js/instagram.js"></script>
+<script src="../data/content.js"></script>
+<script>
+const downloadsData = [
+  { icon:"file", type:"PDF · Conference Paper", title:"Role of FM in High-Rise Fire Prevention", detail:"Tall Building Fire Safety Conference — April 2022", size:"2.4 MB · PDF", url:"../data/ROLE-OF-FM-IN-HRB-FIRE-PREVENTION-APRIL-2022.pdf" },
+  { icon:"slides", type:"Slides · Keynote", title:"Engineering, FM & National Development", detail:"NSE Akure Branch — Speech & Presentation", size:"5.8 MB · PPTX", url:"#" },
+  { icon:"file", type:"PDF · IFMA Address", title:"COVID-19 & the Environment — FM Day 2020", detail:"IFMA Nigeria — World Facility Management Day", size:"1.1 MB · PDF", url:"#" },
+];
+
+const pressData = [
+  { outlet:"The Guardian Nigeria", headline:"Experts Urge Development of Artisans' Skills in Nigeria's Built Sector", excerpt:"Dr. MKO Balogun joins fellow industry experts in calling for investment in local artisan development.", date:"April 2022", url:"blog/artisans-skills-development.html" },
+  { outlet:"BusinessDay Nigeria",  headline:'"We Are Focused on Sustaining the Business Beyond Today" — MKO Balogun', excerpt:"An exclusive interview covering GPFI's long-term growth strategy and Nigeria's real estate outlook.", date:"April 2022", url:"blog/sustain-business-beyond-today.html" },
+  { outlet:"IFMA Nigeria",         headline:"COVID-19 Has Positively Impacted the Environment — Dr MKO Balogun", excerpt:"At the 2020 World FM Day, Dr. Balogun presents evidence of the pandemic's environmental gains.", date:"June 2020", url:"blog/covid-environment-impact.html" },
+];
+
+const fileIcon = `<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+const dlIcon   = `<svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  YouTubeAPI.renderFeatured("yt-featured-media");
+  YouTubeAPI.renderGrid("video-grid", 6);
+  InstagramAPI.renderGrid("ig-grid", 12);
+
+  document.getElementById("downloads-grid").innerHTML = downloadsData.map(d => `
+    <div class="download-card">
+      <div class="dl-icon">${fileIcon}</div>
+      <div>
+        <span class="dl-type">${d.type}</span>
+        <div class="dl-title">${d.title}</div>
+        <div class="dl-detail">${d.detail}</div>
+      </div>
+      <div class="dl-footer">
+        <span class="dl-size">${d.size}</span>
+        <a href="${d.url}" class="dl-btn-sm" ${d.url !== "#" ? "download" : ""}>${dlIcon} Download</a>
+      </div>
+    </div>`).join("");
+
+  document.getElementById("press-grid").innerHTML = pressData.map(p => `
+    <a href="${p.url}" class="press-card">
+      <span class="press-outlet">${p.outlet}</span>
+      <div class="press-headline">${p.headline}</div>
+      <p class="press-excerpt">${p.excerpt}</p>
+      <div class="press-footer">
+        <span class="press-date">${p.date}</span>
+        <span class="press-read">Read Article →</span>
+      </div>
+    </a>`).join("");
+
+  // Tab switching
+  document.querySelectorAll(".mtab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".mtab").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const sectionId = "section-" + btn.dataset.section;
+      const el = document.getElementById(sectionId) || document.getElementById("section-youtube");
+      if (el) el.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+  });
+});
+</script>
+</body>
+</html>

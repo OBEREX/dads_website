@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. MKO Balogun — Engineer · Entrepreneur · Mentor</title>
+  <meta name="description" content="Official website of Dr. MKO Balogun — Engineer, Entrepreneur, Mentor and Community Developer focused on Sustainable Smart Cities and Urban Renewal across Africa.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── HERO ── */
+    .hero { background: var(--navy); min-height: 594px; display: grid; grid-template-columns: 1fr 462px; align-items: center; padding: 66px 44px; gap: 44px; position: relative; overflow: hidden; }
+    .hero::before { content:''; position:absolute; top:-66px; right:330px; width:550px; height:550px; border:1px solid rgba(200,185,122,0.1); border-radius:50%; pointer-events:none; }
+    .hero::after  { content:''; position:absolute; top:22px;  right:385px; width:352px; height:352px; border:1px solid rgba(200,185,122,0.07); border-radius:50%; pointer-events:none; }
+    .hero-text { position:relative; z-index:1; }
+    .hero h1 { font-size:64px; color:var(--white); line-height:1.05; margin:0 0 22px; letter-spacing:-0.01em; }
+    .hero h1 em { font-style:italic; color:var(--gold); }
+    .hero-desc { color:rgba(255,255,255,0.6); font-size:15px; font-weight:300; line-height:1.8; max-width:528px; margin-bottom:40px; }
+    .hero-actions { display:flex; gap:15px; align-items:center; }
+    .btn-ghost { color:rgba(255,255,255,0.7); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px; cursor:pointer; text-decoration:none; transition:color 0.2s; }
+    .btn-ghost:hover { color:var(--white); }
+    .hero-img-panel { position:relative; z-index:1; }
+    .hero-img-box { background:#1e3148; border:1px solid rgba(200,185,122,0.2); border-radius:3px; aspect-ratio:3/4; max-height:462px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; position:relative; }
+    .hero-img-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+    .hero-silhouette { width:132px; height:220px; background:rgba(200,185,122,0.08); border-radius:66px 66px 22px 22px; position:relative; }
+    .hero-silhouette::before { content:''; position:absolute; top:-50px; left:50%; transform:translateX(-50%); width:77px; height:77px; border-radius:50%; background:rgba(200,185,122,0.1); }
+    .hero-img-caption { background:rgba(15,28,46,0.92); padding:18px 22px; border-top:1px solid rgba(200,185,122,0.2); position:relative; z-index:1; }
+    .hero-img-caption p { margin:0 0 4px; font-family:var(--serif); font-size:14px; color:rgba(255,255,255,0.9); font-style:italic; }
+    .hero-img-caption span { font-size:11px; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; }
+    /* About strip */
+    .about-strip { background:var(--white); display:grid; grid-template-columns:1fr 1fr; }
+    .about-left  { padding:79px 44px; background:var(--cream); border-right:1px solid var(--border); }
+    .about-right { padding:79px 44px; }
+    .about-pills { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:31px; }
+    .pill { border:1px solid #ddd; color:var(--text-mid); padding:6px 15px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; border-radius:1px; }
+    .about-quote { border-left:2px solid var(--gold); padding-left:22px; font-family:var(--serif); font-size:20px; font-style:italic; color:var(--navy); line-height:1.6; }
+    /* Ventures */
+    .ventures { background:var(--navy); padding:79px 44px; }
+    .ventures-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.06); border-radius:3px; overflow:hidden; }
+    .venture-card { background:var(--navy); padding:40px 31px; border-right:1px solid rgba(255,255,255,0.06); transition:background 0.25s; text-decoration:none; display:block; color:inherit; }
+    .venture-card:last-child { border-right:none; }
+    .venture-card:hover { background:var(--navy-mid); }
+    .venture-icon { width:40px; height:40px; border:1px solid rgba(200,185,122,0.35); border-radius:2px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
+    .venture-icon svg { width:18px; height:18px; stroke:var(--gold); fill:none; stroke-width:1.5; }
+    .venture-name { font-family:var(--serif); font-size:22px; font-weight:600; color:var(--white); margin-bottom:11px; }
+    .venture-desc { font-size:13px; color:rgba(255,255,255,0.45); line-height:1.8; font-weight:300; margin-bottom:22px; }
+    .venture-link { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(200,185,122,0.35); padding-bottom:2px; }
+    /* Publications */
+    .publications { background:var(--cream); padding:79px 44px; }
+    .pub-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    /* YT strip */
+    .yt-strip { background:var(--white); display:grid; grid-template-columns:1fr 1fr; align-items:center; }
+    .yt-left  { padding:66px 44px; }
+    .yt-right { background:var(--navy); min-height:352px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .yt-thumb { width:100%; min-height:352px; background:var(--navy-mid); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; text-decoration:none; }
+    .yt-play-btn { width:62px; height:62px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 0.2s; }
+    .yt-play-btn:hover { transform:scale(1.08); }
+    .yt-play-btn svg { width:22px; height:22px; fill:var(--navy); margin-left:4px; }
+    .yt-label { font-size:12px; color:rgba(255,255,255,0.5); letter-spacing:0.1em; text-transform:uppercase; }
+    /* Social strip */
+    .social-strip { background:var(--cream); padding:53px 44px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); flex-wrap:wrap; gap:22px; }
+    .social-strip h3 { font-family:var(--serif); font-size:29px; font-weight:600; color:var(--navy); }
+    .social-icons { display:flex; gap:11px; flex-wrap:wrap; }
+    .soc-btn { display:flex; align-items:center; gap:8px; padding:10px 18px; border:1px solid #ddd; border-radius:2px; background:var(--white); font-size:12px; font-weight:500; color:#333; cursor:pointer; text-decoration:none; transition:border-color 0.2s; font-family:var(--sans); }
+    .soc-btn:hover { border-color:var(--navy); color:var(--navy); }
+    .soc-btn svg { width:15px; height:15px; }
+    @media(max-width:1024px){
+      .hero { grid-template-columns:1fr; padding:44px 24px; min-height:auto; }
+      .hero-img-panel { display:none; }
+      .hero h1 { font-size:44px; }
+      .about-strip { grid-template-columns:1fr; }
+      .ventures-grid { grid-template-columns:1fr; }
+      .pub-grid { grid-template-columns:1fr 1fr; }
+      .yt-strip { grid-template-columns:1fr; }
+      .yt-right { min-height:240px; }
+    }
+    @media(max-width:640px){
+      .pub-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div data-component="topbar"></div>
+<div data-component="navbar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Engineer · Entrepreneur · Mentor</span>
+    <h1>Building <em>Smarter</em><br>Cities &amp; Stronger<br>Communities</h1>
+    <p class="hero-desc">Dr. MKO Balogun is a PhD-holding engineer, facilities management expert, and serial entrepreneur driving sustainable urban development across Africa and beyond.</p>
+    <div class="hero-actions">
+      <a href="pages/about.html" class="btn-primary">View Profile</a>
+      <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="btn-ghost">Watch on YouTube →</a>
+    </div>
+  </div>
+  <div class="hero-img-panel">
+    <div class="hero-img-box">
+      <div class="hero-img-placeholder"><div class="hero-silhouette"></div></div>
+      <div class="hero-img-caption">
+        <p>"Life is an adventure — what impression you leave makes a lasting mark in the world."</p>
+        <span>— Dr. MKO Balogun</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar" style="grid-template-columns:repeat(4,1fr);">
+  <div class="stat-item"><span class="stat-num" id="stat-followers">175<span>,000</span></span><span class="stat-label">Social followers</span></div>
+  <div class="stat-item"><span class="stat-num" id="stat-awards">69</span><span class="stat-label">Awards &amp; honours</span></div>
+  <div class="stat-item"><span class="stat-num" id="stat-companies">4</span><span class="stat-label">Companies led</span></div>
+  <div class="stat-item"><span class="stat-num">30<span>+ yrs</span></span><span class="stat-label">Industry experience</span></div>
+</div>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-left">
+    <span class="section-tag">Who is Dr. Balogun</span>
+    <h2 class="section-title">A Legacy of<br>Leadership &amp; Impact</h2>
+    <div class="divider"></div>
+    <p class="body-text">Born in Ibadan, Dr. Muhammad Kassim Olatunde Balogun holds a B.Eng (Hons), MBA, and PhD (Hons) alongside globally recognised certifications in Facilities Management. He is the Group MD/CEO of GPFI and founder of the DMB Foundation.</p>
+    <p class="body-text">His career spans engineering, entrepreneurship, mentorship, and community development across Nigeria, Africa, and the global stage.</p>
+    <a href="pages/about.html" class="btn-primary">Full Biography →</a>
+  </div>
+  <div class="about-right">
+    <span class="section-tag">Areas of expertise</span>
+    <h2 class="section-title">What He<br>Stands For</h2>
+    <div class="divider"></div>
+    <div class="about-pills">
+      <span class="pill">Facilities Management</span><span class="pill">Smart Cities</span>
+      <span class="pill">Urban Renewal</span><span class="pill">Entrepreneurship</span>
+      <span class="pill">Mentorship</span><span class="pill">Real Estate</span>
+      <span class="pill">Engineering</span><span class="pill">Community Development</span>
+      <span class="pill">Leadership</span><span class="pill">Sustainability</span>
+    </div>
+    <blockquote class="about-quote">"On my honour, I promise to do my best — to help other people at all times with all the resources at my disposal."</blockquote>
+  </div>
+</div>
+
+<!-- VENTURES -->
+<section class="ventures">
+  <div class="flex-between" style="margin-bottom:44px;">
+    <div>
+      <span class="section-tag">Work &amp; Ventures</span>
+      <h2 class="section-title" style="color:var(--white);">His Companies &amp; Initiatives</h2>
+      <div class="divider"></div>
+    </div>
+    <a href="pages/ventures.html" class="see-all-light">See all ventures →</a>
+  </div>
+  <div class="ventures-grid">
+    <a href="pages/ventures.html#gpfi" class="venture-card">
+      <div class="venture-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg></div>
+      <div class="venture-name">GPFI Group</div>
+      <p class="venture-desc">Global Property &amp; Facilities International — a leading integrated real estate and facilities management firm across Nigeria and Africa.</p>
+      <span class="venture-link">Visit GPFI →</span>
+    </a>
+    <a href="pages/ventures.html#consulting" class="venture-card">
+      <div class="venture-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="venture-name">DMB Consulting</div>
+      <p class="venture-desc">Expert advisory in facilities management, engineering, and sustainable urban development for corporations and government bodies.</p>
+      <span class="venture-link">Learn more →</span>
+    </a>
+    <a href="pages/ventures.html#foundation" class="venture-card">
+      <div class="venture-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+      <div class="venture-name">DMB Foundation</div>
+      <p class="venture-desc">Founded 2017 to support women entrepreneurs and youth across Africa through mentorship, scholarships, and community development.</p>
+      <span class="venture-link">Foundation work →</span>
+    </a>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="publications">
+  <div class="flex-between" style="margin-bottom:44px;">
+    <div>
+      <span class="section-tag">Publications &amp; Blog</span>
+      <h2 class="section-title">Latest Articles &amp; Insights</h2>
+      <div class="divider"></div>
+    </div>
+    <a href="pages/publications.html" class="see-all">View all →</a>
+  </div>
+  <div class="pub-grid" id="home-pub-grid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- YOUTUBE TEASER -->
+<div class="yt-strip">
+  <div class="yt-left">
+    <span class="section-tag">Media / YouTube</span>
+    <h2 class="section-title">Watch Dr. Balogun<br>in Action</h2>
+    <div class="divider"></div>
+    <p class="body-text">From keynote addresses to mentorship sessions — the YouTube channel brings Dr. Balogun's expertise to life. Subscribe to stay updated.</p>
+    <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="btn-primary">Subscribe to Channel</a>
+  </div>
+  <div class="yt-right" id="home-yt-featured">
+    <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="yt-thumb">
+      <div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <span class="yt-label">Latest video</span>
+    </a>
+  </div>
+</div>
+
+<!-- SOCIAL CONNECT STRIP -->
+<div class="social-strip">
+  <h3>Follow &amp; Connect with Dr. Balogun</h3>
+  <div class="social-icons" id="home-social-icons">
+    <!-- Populated by JS -->
+  </div>
+</div>
+
+<div data-component="footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/components.js"></script>
+<script src="js/youtube.js"></script>
+<script src="data/content.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Populate stats from config
+  document.getElementById("stat-followers").innerHTML = CONFIG.stats.totalFollowers.replace(",000","<span>,000</span>");
+  document.getElementById("stat-awards").textContent   = CONFIG.stats.awards;
+  document.getElementById("stat-companies").textContent = CONFIG.stats.companies;
+
+  // Populate featured publications (first 3 articles + blog posts)
+  const allContent = [...CONTENT.articles, ...CONTENT.blogPosts].slice(0, 3);
+  document.getElementById("home-pub-grid").innerHTML = allContent.map(item => `
+    <a href="pages/publications.html#${item.id}" class="pub-card">
+      <span class="pub-tag">${item.tag}</span>
+      <div class="pub-title">${item.title}</div>
+      <p class="pub-excerpt">${item.excerpt}</p>
+      <div class="pub-footer">
+        <span class="pub-date">${item.date}</span>
+        <span class="pub-read">Read →</span>
+      </div>
+    </a>`).join("");
+
+  // Social icons
+  const socialNames = { linkedin:"LinkedIn", twitter:"Twitter / X", facebook:"Facebook", instagram:"Instagram", youtube:"YouTube" };
+  const socialIcons = {
+    linkedin:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+    twitter:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>`,
+    facebook:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
+    instagram: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+    youtube:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>`,
+  };
+  document.getElementById("home-social-icons").innerHTML = Object.entries(socialNames).map(([key, name]) =>
+    `<a href="${CONFIG.social[key]}" target="_blank" rel="noopener" class="soc-btn">${socialIcons[key]} ${name}</a>`
+  ).join("");
+
+  // YouTube featured
+  YouTubeAPI.renderFeatured("home-yt-featured");
+});
+</script>
+</body>
+</html>

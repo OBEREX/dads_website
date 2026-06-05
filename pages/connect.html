@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect — Dr. MKO Balogun</title>
+  <meta name="description" content="Follow Dr. MKO Balogun on LinkedIn, YouTube, Twitter, Facebook, Instagram and more.">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .stats-bar-5{grid-template-columns:repeat(5,1fr);}
+    .stat-platform{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:4px;display:block;}
+    .platforms-section{background:var(--cream);padding:79px 44px;}
+    .platforms-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;}
+    .platform-card{background:var(--white);border:1px solid var(--border);border-radius:2px;overflow:hidden;transition:border-color .2s;}
+    .platform-card:hover{border-color:var(--gold);}
+    .platform-header{padding:28px 28px 22px;display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--border-alt);}
+    .p-icon{width:52px;height:52px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .p-icon svg{width:24px;height:24px;}
+    .p-icon.li{background:#0077b5;} .p-icon.yt{background:#ff0000;} .p-icon.tw{background:#000;} .p-icon.fb{background:#1877f2;} .p-icon.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+    .p-meta{flex:1;}
+    .p-name{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+    .p-handle{font-size:12px;color:var(--text-muted);font-weight:300;}
+    .p-count-wrap{text-align:right;flex-shrink:0;}
+    .p-count{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--navy);display:block;line-height:1;}
+    .p-count span{color:var(--gold);font-size:18px;}
+    .p-flabel{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:3px;display:block;}
+    .platform-body{padding:22px 28px 28px;}
+    .p-desc{font-size:13px;color:#666;line-height:1.8;font-weight:300;margin-bottom:20px;}
+    .p-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+    .p-pill{border:1px solid var(--border);color:var(--text-mid);padding:4px 12px;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;border-radius:1px;}
+    .p-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;font-family:var(--sans);}
+    .p-cta:hover{opacity:.88;}
+    .p-cta.li-btn{background:#0077b5;color:#fff;} .p-cta.yt-btn{background:#ff0000;color:#fff;} .p-cta.tw-btn{background:#000;color:#fff;} .p-cta.fb-btn{background:#1877f2;color:#fff;} .p-cta.ig-btn{background:#000;color:#fff;}
+    .p-cta svg{width:14px;height:14px;fill:#fff;}
+    .yt-feature{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+    .yt-feature-left{padding:79px 44px;}
+    .yt-feature-right{background:#0d1926;display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(200,185,122,0.1);min-height:340px;}
+    .yt-embed-wrap{width:85%;aspect-ratio:16/9;background:#162840;border:1px solid rgba(200,185,122,0.15);border-radius:3px;display:flex;align-items:center;justify-content:center;}
+    .yt-sub-row{display:flex;align-items:center;gap:16px;margin-top:22px;padding:16px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,185,122,0.1);border-radius:2px;}
+    .yt-sub-icon{width:40px;height:40px;background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .yt-sub-icon svg{width:18px;height:18px;fill:#fff;}
+    .yt-sub-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:3px;}
+    .yt-sub-detail{font-size:11px;color:rgba(255,255,255,.4);font-weight:300;}
+    .yt-sub-btn{background:#ff0000;color:#fff;border:none;padding:9px 18px;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border-radius:2px;cursor:pointer;flex-shrink:0;font-family:var(--sans);text-decoration:none;}
+    .ig-section{background:var(--white);padding:79px 44px;}
+    .ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:44px;}
+    .ig-item{aspect-ratio:1;background:var(--navy-mid);border-radius:2px;overflow:hidden;cursor:pointer;display:block;transition:opacity .2s;}
+    .ig-item:hover{opacity:.8;}
+    .ig-item-inner{width:100%;height:100%;background:var(--navy-deep);display:flex;align-items:center;justify-content:center;}
+    .ig-item-inner svg{width:22px;height:22px;stroke:rgba(200,185,122,0.2);fill:none;stroke-width:1;}
+    .ig-follow-row{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding:20px 24px;border:1px solid var(--border);border-radius:2px;background:var(--cream);flex-wrap:wrap;gap:14px;}
+    .ig-follow-text{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--navy);}
+    .ig-follow-handle{font-size:12px;color:var(--text-muted);margin-top:3px;}
+    .ig-follow-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#000;color:#fff;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;}
+    .all-platforms{background:var(--navy);padding:66px 44px;}
+    .all-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;}
+    .ap-card{background:#162840;border:1px solid rgba(200,185,122,0.1);border-radius:2px;padding:22px 24px;display:flex;align-items:center;gap:18px;transition:border-color .2s;text-decoration:none;}
+    .ap-card:hover{border-color:rgba(200,185,122,0.35);}
+    .ap-icon{width:44px;height:44px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .ap-name{font-size:14px;font-weight:500;color:#fff;margin-bottom:3px;}
+    .ap-handle{font-size:11px;color:rgba(255,255,255,.4);font-weight:300;}
+    .ap-arrow{color:rgba(200,185,122,.5);font-size:18px;margin-left:auto;}
+    @media(max-width:1024px){.platforms-grid{grid-template-columns:1fr;}.yt-feature{grid-template-columns:1fr;}.yt-feature-right{display:none;}.ig-grid{grid-template-columns:repeat(4,1fr);}.all-grid{grid-template-columns:1fr 1fr;}.stats-bar-5{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:640px){.ig-grid{grid-template-columns:repeat(3,1fr);}.all-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<div data-component="topbar"></div>
+<div data-component="navbar"></div>
+<section class="page-hero">
+  <span class="hero-tag">Connect</span>
+  <h1>Follow the Journey<br><em>Across Every Platform</em></h1>
+  <div class="divider"></div>
+  <p class="page-hero-sub">Stay connected with Dr. MKO Balogun's latest thoughts, activities, and impact across all social platforms — all in one place.</p>
+</section>
+<!-- STATS -->
+<div class="stats-bar stats-bar-5" id="platform-stats"></div>
+<!-- PLATFORM CARDS -->
+<section class="platforms-section">
+  <span class="section-tag">Social Platforms</span>
+  <h2 class="section-title">Where to Find Dr. Balogun</h2>
+  <div class="divider"></div>
+  <div class="platforms-grid" id="platform-cards"></div>
+</section>
+<!-- YOUTUBE FEATURE -->
+<div class="yt-feature">
+  <div class="yt-feature-left">
+    <span class="section-tag" style="color:var(--gold);">YouTube Spotlight</span>
+    <h2 style="font-family:var(--serif);font-size:38px;font-weight:700;color:var(--white);line-height:1.15;margin:0;">Watch the Latest<br><em style="font-style:italic;color:var(--gold);">From the Channel</em></h2>
+    <div class="divider"></div>
+    <p style="color:rgba(255,255,255,.5);font-size:14px;font-weight:300;line-height:1.9;margin-bottom:28px;">Subscribe and never miss Dr. Balogun's latest keynotes, interviews, and mentorship content.</p>
+    <div class="yt-sub-row">
+      <div class="yt-sub-icon"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+      <div class="yt-sub-text">
+        <div class="yt-sub-title">Dr. MKO Balogun — Official Channel</div>
+        <div class="yt-sub-detail">New videos monthly · Keynotes, panels &amp; mentorship</div>
+      </div>
+      <a href="https://youtube.com/@mkobalogun" target="_blank" rel="noopener" class="yt-sub-btn">Subscribe</a>
+    </div>
+  </div>
+  <div class="yt-feature-right">
+    <div class="yt-embed-wrap" id="connect-yt-featured"></div>
+  </div>
+</div>
+<!-- INSTAGRAM -->
+<section class="ig-section">
+  <div class="flex-between" style="margin-bottom:0;">
+    <div><span class="section-tag">Instagram</span><h2 class="section-title">Behind the Scenes &amp; Events</h2><div class="divider"></div></div>
+  </div>
+  <div class="ig-grid" id="connect-ig-grid"></div>
+  <div class="ig-follow-row">
+    <div><div class="ig-follow-text">Follow @mkobalogun on Instagram</div><div class="ig-follow-handle">Events, activities, milestones &amp; more</div></div>
+    <a href="https://instagram.com/mkobalogun" target="_blank" rel="noopener" class="ig-follow-btn">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Follow on Instagram
+    </a>
+  </div>
+</section>
+<!-- ALL PLATFORMS -->
+<section class="all-platforms">
+  <span class="section-tag" style="color:var(--gold);">All Platforms</span>
+  <h2 style="font-family:var(--serif);font-size:38px;font-weight:700;color:#fff;line-height:1.15;margin:0;">Every Place You Can<br><em style="font-style:italic;color:var(--gold);">Follow Dr. Balogun</em></h2>
+  <div class="divider"></div>
+  <div class="all-grid" id="all-platforms-grid"></div>
+</section>
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="nl-left">
+    <h2>Stay in the loop with Dr. Balogun's <em>latest updates</em></h2>
+    <p>New articles, videos and announcements. No spam — just ideas worth your time.</p>
+  </div>
+  <div>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="Your email address" id="nl-email-connect">
+      <button class="nl-btn" onclick="document.getElementById('nl-email-connect').value&&alert('Thank you! You\'re subscribed.')">Subscribe</button>
+    </div>
+  </div>
+</div>
+<div class="cta-strip">
+  <h2>Want to reach out<br><em>directly</em>?</h2>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-primary">Go to Contact Page</a>
+    <a href="publications.html" class="btn-outline-gold">View Publications →</a>
+  </div>
+</div>
+<div data-component="footer"></div>
+<script src="../js/config.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/youtube.js"></script>
+<script src="../js/instagram.js"></script>
+<script>
+const platformsData = [
+  { key:"linkedin",  name:"LinkedIn",   handle:"linkedin.com/in/mkobalogun", count:"50K+", flabel:"Connections", cls:"li", desc:"Industry insights, thought leadership on FM, real estate commentary and career mentorship advice.", pills:["Industry insights","Career advice","FM commentary","Business updates"], btnCls:"li-btn", btnLabel:"Connect on LinkedIn", svgPath:`<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>` },
+  { key:"youtube",   name:"YouTube",    handle:"youtube.com/@mkobalogun",    count:"45K+", flabel:"Subscribers", cls:"yt", desc:"Keynote speeches, mentorship sessions, and commentary on Africa's built environment and smart cities.", pills:["Keynotes","Mentorship sessions","Interviews","Conference talks"], btnCls:"yt-btn", btnLabel:"Subscribe on YouTube", svgPath:`<path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>` },
+  { key:"twitter",   name:"Twitter / X", handle:"@mkobalogun",              count:"20K+", flabel:"Followers",   cls:"tw", desc:"Real-time commentary on Nigeria's real estate sector, engineering news, and smart city developments.", pills:["Real-time news","Opinion","Announcements"], btnCls:"tw-btn", btnLabel:"Follow on X", svgPath:`<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>` },
+  { key:"facebook",  name:"Facebook",   handle:"facebook.com/mkobalogun",    count:"40K+", flabel:"Followers",   cls:"fb", desc:"Community updates, foundation activities, event announcements, and engagement with fans and mentees.", pills:["Community updates","Events","Foundation news"], btnCls:"fb-btn", btnLabel:"Follow on Facebook", svgPath:`<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>` },
+];
+const allPlatforms = [
+  { key:"linkedin",  name:"LinkedIn",   handle:"linkedin.com/in/mkobalogun", bg:"#0077b5" },
+  { key:"youtube",   name:"YouTube",    handle:"youtube.com/@mkobalogun",    bg:"#ff0000" },
+  { key:"twitter",   name:"Twitter / X",handle:"@mkobalogun",               bg:"#000" },
+  { key:"facebook",  name:"Facebook",   handle:"facebook.com/mkobalogun",    bg:"#1877f2" },
+  { key:"instagram", name:"Instagram",  handle:"@mkobalogun",               bg:"linear-gradient(45deg,#f09433,#dc2743,#bc1888)" },
+  { key:"pinterest", name:"Pinterest",  handle:"pinterest.com/mkobalogun",   bg:"#e60023" },
+];
+document.addEventListener("DOMContentLoaded",()=>{
+  // Stats bar
+  document.getElementById("platform-stats").innerHTML = [
+    {num:"175,000",label:"Total followers",platform:"All platforms"},
+    {num:CONFIG.stats.linkedinConnections,label:"Connections",platform:"LinkedIn"},
+    {num:CONFIG.stats.youtubeSubscribers,label:"Subscribers",platform:"YouTube"},
+    {num:CONFIG.stats.facebookFollowers,label:"Followers",platform:"Facebook"},
+    {num:CONFIG.stats.twitterFollowers+"+",label:"Followers",platform:"Twitter / Instagram"},
+  ].map(s=>`<div class="stat-item"><span class="stat-num">${s.num}</span><span class="stat-label">${s.label}</span><span class="stat-platform">${s.platform}</span></div>`).join("");
+
+  // Platform cards
+  document.getElementById("platform-cards").innerHTML = platformsData.map(p=>`
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="p-icon ${p.cls}"><svg viewBox="0 0 24 24" fill="#fff" width="24" height="24">${p.svgPath}</svg></div>
+        <div class="p-meta"><div class="p-name">${p.name}</div><div class="p-handle">${p.handle}</div></div>
+        <div class="p-count-wrap"><span class="p-count">${p.count.replace("K+","<span>K+</span>")}</span><span class="p-flabel">${p.flabel}</span></div>
+      </div>
+      <div class="platform-body">
+        <p class="p-desc">${p.desc}</p>
+        <div class="p-pills">${p.pills.map(t=>`<span class="p-pill">${t}</span>`).join("")}</div>
+        <a href="${CONFIG.social[p.key]}" target="_blank" rel="noopener" class="p-cta ${p.btnCls}"><svg viewBox="0 0 24 24" width="14" height="14">${p.svgPath}</svg>${p.btnLabel}</a>
+      </div>
+    </div>`).join("");
+
+  // YouTube featured
+  YouTubeAPI.renderFeatured("connect-yt-featured");
+  // Instagram grid
+  InstagramAPI.renderGrid("connect-ig-grid", 6);
+
+  // All platforms
+  document.getElementById("all-platforms-grid").innerHTML = allPlatforms.map(p=>`
+    <a href="${CONFIG.social[p.key]}" target="_blank" rel="noopener" class="ap-card">
+      <div class="ap-icon" style="background:${p.bg};"></div>
+      <div><div class="ap-name">${p.name}</div><div class="ap-handle">${p.handle}</div></div>
+      <span class="ap-arrow">→</span>
+    </a>`).join("");
+});
+</script>
+</body>
+</html>

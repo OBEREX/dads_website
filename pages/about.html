@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Dr. MKO Balogun — Engineer · Entrepreneur · Mentor</title>
+  <meta name="description" content="Learn about Dr. MKO Balogun — his biography, career timeline, credentials, awards, and professional memberships.">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .about-hero-grid{display:grid;grid-template-columns:1fr 340px;gap:66px;align-items:center;}
+    .photo-card{background:#1e3148;border:1px solid rgba(200,185,122,0.2);border-radius:3px;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;position:relative;}
+    .photo-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+    .photo-silhouette{width:110px;height:185px;background:rgba(200,185,122,0.08);border-radius:55px 55px 18px 18px;position:relative;}
+    .photo-silhouette::before{content:'';position:absolute;top:-44px;left:50%;transform:translateX(-50%);width:66px;height:66px;border-radius:50%;background:rgba(200,185,122,0.1);}
+    .photo-badge{position:relative;z-index:1;background:rgba(15,28,46,0.92);border-top:1px solid rgba(200,185,122,0.2);padding:16px 20px;}
+    .photo-badge p{margin:0 0 4px;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--white);}
+    .photo-badge span{font-size:11px;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;}
+    .creds-strip{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
+    .cred-pill{background:rgba(200,185,122,0.1);border:1px solid rgba(200,185,122,0.2);border-radius:2px;padding:7px 14px;font-size:11px;color:var(--gold);letter-spacing:0.06em;text-align:center;}
+    .bio-section{background:var(--white);display:grid;grid-template-columns:1fr 1fr;}
+    .bio-left{padding:79px 44px;border-right:1px solid var(--border);}
+    .bio-right{padding:79px 44px;background:var(--cream);}
+    .philosophy-block{margin-bottom:28px;}
+    .phil-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+    .phil-quote{border-left:2px solid var(--gold);padding-left:20px;font-family:var(--serif);font-size:17px;font-style:italic;color:var(--navy);line-height:1.65;margin:0;}
+    /* Timeline */
+    .timeline-section{background:var(--cream);padding:79px 44px;}
+    .timeline{margin-top:44px;position:relative;}
+    .timeline::before{content:'';position:absolute;left:148px;top:0;bottom:0;width:1px;background:#e0dbd0;}
+    .tl-item{display:grid;grid-template-columns:148px 1fr;margin-bottom:44px;position:relative;}
+    .tl-item:last-child{margin-bottom:0;}
+    .tl-year{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--gold);padding-right:28px;text-align:right;padding-top:3px;line-height:1.4;}
+    .tl-dot{position:absolute;left:141px;top:8px;width:15px;height:15px;border-radius:50%;background:var(--white);border:2px solid var(--gold);z-index:1;}
+    .tl-content{padding-left:36px;}
+    .tl-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:5px;}
+    .tl-org{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+    .tl-desc{font-size:13px;color:#666;line-height:1.8;font-weight:300;}
+    /* Credentials */
+    .cred-section{background:var(--navy);padding:79px 44px;}
+    .cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+    .cred-card{background:var(--navy-mid);border:1px solid rgba(200,185,122,0.12);border-radius:3px;padding:28px;transition:border-color .2s;}
+    .cred-card:hover{border-color:rgba(200,185,122,0.35);}
+    .cred-card-tag{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
+    .cred-card-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:8px;}
+    .cred-card-detail{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;}
+    /* Awards */
+    .awards-section{background:var(--white);padding:79px 44px;}
+    .awards-sub{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy);margin:44px 0 20px;}
+    .awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+    .award-row{display:flex;align-items:flex-start;gap:18px;padding:20px;border:1px solid var(--border);border-radius:2px;transition:border-color .2s;}
+    .award-row:hover{border-color:var(--gold);}
+    .award-year{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold);line-height:1;min-width:44px;flex-shrink:0;}
+    .award-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:3px;line-height:1.4;}
+    .award-body{font-size:11px;color:#888;font-weight:300;line-height:1.6;}
+    /* Memberships */
+    .mem-section{background:var(--cream);padding:79px 44px;}
+    .mem-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px;}
+    .mem-tag{border:1px solid #ddd;background:var(--white);padding:11px 20px;font-size:12px;color:#444;border-radius:2px;transition:border-color .2s,color .2s;}
+    .mem-tag:hover{border-color:var(--gold);color:var(--navy);}
+    @media(max-width:1024px){
+      .about-hero-grid{grid-template-columns:1fr;}
+      .photo-card{max-width:320px;}
+      .bio-section{grid-template-columns:1fr;}
+      .cred-grid{grid-template-columns:1fr 1fr;}
+      .awards-grid{grid-template-columns:1fr;}
+      .timeline::before{left:80px;}
+      .tl-item{grid-template-columns:80px 1fr;}
+      .tl-dot{left:73px;}
+    }
+    @media(max-width:640px){.cred-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<div data-component="topbar"></div>
+<div data-component="navbar"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="about-hero-grid">
+    <div>
+      <span class="hero-tag">About Dr. MKO Balogun</span>
+      <h1>Engineer. Leader.<br><em>Nation Builder.</em></h1>
+      <div class="divider"></div>
+      <p class="page-hero-sub">Born in Ibadan in 1967, Dr. Muhammad Kassim Olatunde Balogun has spent over three decades building institutions, shaping policy, mentoring the next generation of African leaders, and establishing himself as one of Africa's foremost voices in Facilities Management and Sustainable Urban Development.</p>
+    </div>
+    <div>
+      <div class="photo-card">
+        <div class="photo-placeholder"><div class="photo-silhouette"></div></div>
+        <div class="photo-badge">
+          <p>Dr. MKO Balogun</p>
+          <span>Group MD/CEO · GPFI Group</span>
+        </div>
+      </div>
+      <div class="creds-strip">
+        <div class="cred-pill">B.Eng (Hons) · MBA · PhD (Hons)</div>
+        <div class="cred-pill">CFM · FCMI · FMP · FNSE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO + PHILOSOPHY -->
+<div class="bio-section" id="biography">
+  <div class="bio-left">
+    <span class="section-tag">Biography</span>
+    <h2 class="section-title">The Man Behind<br>the Mission</h2>
+    <div class="divider"></div>
+    <p class="body-text">Born on July 5, 1967, in Ibadan, Oyo State, Nigeria, to the late Dr. Abdul Ghani Kola Balogun — a trade unionist, politician, sports administrator and civil administrator — and the late Alhaja Memunat Balogun, Muhammad Kassim Olatunde Balogun attended various primary schools in Ibadan between 1973 and 1979, including Ratibi Muslim School, St. Patrick Primary School and Muslim Primary School, Oke Ibadan.</p>
+    <p class="body-text">He proceeded to the famous St. Thomas Aquinas College, Akure (1979–1984), then Apostolic Teachers College, Ilesa (1984–1988), and was among the pioneering students at Wesley College of Science, Ibadan in 1988. In 1989 he entered Federal University of Technology Owerri, graduating in 1995 with a B.Eng (Hons).</p>
+    <p class="body-text">He pursued an Executive MBA at the prestigious Lagos Business School, Pan Atlantic University (2004–2006), followed by a PhD in Entrepreneurship commenced at Walden University, USA (2012), and was honoured with a PhD in Management by Commonwealth University, Belize in December 2012.</p>
+    <p class="body-text">Today, Dr. Balogun is the Group MD/CEO of Global Property & Facilities International Limited (GPFI), Founder of DMB Consulting, and Founder of the DMB Foundation. He is an Adjunct Lecturer at the University of Lagos Masters in Facilities Management programme, a board member of Premier Paints Plc, and the Chairman of its Strategy Committee. He is married to Mariam and they have five sons: Abdulrasaq, Kassim, Ali, Idris and Abdulmuiid.</p>
+    <a href="contact.html" class="btn-primary">Get in Touch →</a>
+  </div>
+  <div class="bio-right">
+    <span class="section-tag">Philosophy &amp; Values</span>
+    <h2 class="section-title">What Drives<br>Dr. Balogun</h2>
+    <div class="divider"></div>
+    <div class="philosophy-block">
+      <span class="phil-label">His Philosophy</span>
+      <blockquote class="phil-quote">"Life is an adventure, Life is a school, Life is a sports field, Life is a place where you meet people — and what impression you leave after the meeting makes a lasting impression in the world and the mind of the people you meet."</blockquote>
+    </div>
+    <div class="philosophy-block">
+      <span class="phil-label">His Resolution</span>
+      <blockquote class="phil-quote">"On my honour, I promise to do my best, to do my duty to God and my country, to help other people at all times with all the resources at my disposal, to abide by all God's laws and laws of my nation. So help me God. Amen."</blockquote>
+    </div>
+    <div class="philosophy-block">
+      <span class="phil-label">His Focus</span>
+      <blockquote class="phil-quote">"Sustainability and Smart City Development — building institutions and infrastructure that outlast any one individual."</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- CAREER TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <span class="section-tag">Career Timeline</span>
+  <h2 class="section-title">A Journey of Purposeful Leadership</h2>
+  <div class="timeline" id="timeline-items"></div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="cred-section" id="credentials">
+  <span class="section-tag" style="color:var(--gold);">Academic &amp; Professional Credentials</span>
+  <h2 class="section-title" style="color:var(--white);">Qualifications &amp; Certifications</h2>
+  <div class="divider"></div>
+  <div class="cred-grid" id="cred-grid"></div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards-section" id="awards">
+  <span class="section-tag">Recognition &amp; Honours</span>
+  <h2 class="section-title">Awards &amp; Fellowships</h2>
+  <div class="divider"></div>
+  <p class="body-text" style="max-width:680px;">Dr. Balogun is a recipient of numerous personal and corporate awards across Nigeria, Africa and internationally — recognising his leadership in engineering, facilities management, entrepreneurship and community service.</p>
+
+  <h3 class="awards-sub">Personal Awards</h3>
+  <div class="awards-grid" id="personal-awards-grid"></div>
+
+  <h3 class="awards-sub" style="margin-top:44px;">Company Awards (GPFI Group)</h3>
+  <div class="awards-grid" id="company-awards-grid"></div>
+</section>
+
+<!-- PROFESSIONAL MEMBERSHIPS -->
+<section class="mem-section" id="memberships">
+  <span class="section-tag">Professional Memberships</span>
+  <h2 class="section-title">Bodies &amp; Associations</h2>
+  <div class="divider"></div>
+  <div class="mem-list" id="mem-list"></div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to work with<br>Dr. <em>Balogun</em>?</h2>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-primary">Get in Touch</a>
+    <a href="ventures.html" class="btn-outline-gold">View His Ventures →</a>
+  </div>
+</div>
+
+<div data-component="footer"></div>
+
+<script src="../js/config.js"></script>
+<script src="../js/components.js"></script>
+<script>
+
+const timelineData = [
+  {
+    year: "2017 – Present",
+    title: "Founder — DMB Foundation",
+    org: "DMB Foundation, Lagos, Nigeria",
+    desc: "Established the DMB Foundation to support women entrepreneurs, youth empowerment, and mentorship programmes across Africa, including the Africa Mentees Initiative and Africa Students Mentorship Programme. The Foundation provides scholarships from senior secondary to university level, with polytechnic, open university, and secondary school scholars also supported."
+  },
+  {
+    year: "2015 – Present",
+    title: "Group MD / CEO",
+    org: "GPFI Group — Global Property & Facilities International Limited",
+    desc: "Leads one of Nigeria's foremost integrated real estate and facilities management groups. Under his leadership, GPFI has grown from a local Nigerian company to one with operations across 5 African countries. He is also a board member of Premier Paints Plc and Chairman of its Strategy Committee."
+  },
+  {
+    year: "2014 – Present",
+    title: "Adjunct Lecturer — Masters in Facilities Management",
+    org: "University of Lagos, Department of Estate Management",
+    desc: "Appointed as Adjunct Lecturer in 2014 after volunteering on the programme since its commencement in 2009. Introduced innovations including guest lecturer series, practical projects, and site visits to existing buildings."
+  },
+  {
+    year: "2012",
+    title: "MD/CEO following merger with WSP FMC Nigeria",
+    org: "WSP FMC Nigeria Ltd / GPFI Group",
+    desc: "Merged Domme FM Ltd with WSP FMC Nigeria Ltd in 2012, taking over as MD/CEO and steering the combined entity through rebranding, growth, and expansion across Africa."
+  },
+  {
+    year: "2010 – Present",
+    title: "Founder & Principal Consultant",
+    org: "DMB Consulting",
+    desc: "Advisory firm specialising in facilities management, engineering solutions, and sustainable urban development for corporations, institutions, and government bodies."
+  },
+  {
+    year: "2008 – Present",
+    title: "Founder & MD/CEO",
+    org: "Domme FM Ltd (now GPFI Group)",
+    desc: "Left paid employment in 2008 to grow Domme FM Ltd, a company originally started as an MBA project. Grew the firm from a startup to one of Nigeria's leading FM companies."
+  },
+  {
+    year: "2008 – 2009",
+    title: "Facilities Manager",
+    org: "MM2 Terminal, Lagos",
+    desc: "Set the tone for proper facilities management of the terminal and reduced the cost of running the terminal by more than 12%."
+  },
+  {
+    year: "2007 – 2008",
+    title: "Mechanical Services Manager → Facilities Manager → Project Manager",
+    org: "UBA Plc",
+    desc: "Oversaw the transformation of UBA House and managed facilities and mechanical services for the banking group across its major facilities."
+  },
+  {
+    year: "2006",
+    title: "Project Manager → Facilities Manager",
+    org: "UACN — Mr. Biggs",
+    desc: "Managed projects and facilities for Mr. Biggs, reducing the cost of set-up by more than 25%."
+  },
+  {
+    year: "2005",
+    title: "Sales & Marketing — Mercedes Benz B-Class & VW Trucks",
+    org: "Leventis Motors Nigeria",
+    desc: "Worked to introduce the Mercedes Benz B-Class and Volkswagen Trucks to the Nigerian market."
+  },
+  {
+    year: "2004 – 2005",
+    title: "AGM — Armoured Vehicle Services",
+    org: "Bemil Security Services",
+    desc: "Responsible for marketing, production of armoured vehicles and related products, and maintenance of vehicles and buildings."
+  },
+  {
+    year: "2001 – 2004",
+    title: "Production Manager → Marketing Manager → After Sales Manager",
+    org: "UACN / General Motors Nigeria",
+    desc: "As Production Manager, the plant was voted one of the best managed assembly plants in the world. As Marketing Manager, expanded the company's sales network across Nigeria, winning the Best Manager Award in 2003."
+  },
+  {
+    year: "1995 – 2001",
+    title: "Youth Corps Member → Technical Adviser, Northern Region",
+    org: "CFAO / Peugeot Automobile Nigeria",
+    desc: "Rose through the ranks to become Technical Adviser for Northern Region. Won the prestigious Peugeot Automobile Nigeria Technical Adviser of the Year award (2000) and Manager of the Year twice (1999 and 2000)."
+  },
+  {
+    year: "1984 – 1989",
+    title: "Executive Assistant, PR Officer, Registrar & Political Assistant",
+    org: "Various organisations",
+    desc: "Early career roles across public relations, administration, and political support — laying the foundation for a career built on leadership and institutional building."
+  },
+];
+
+const credData = [
+  { tag:"Academic Degree",           title:"Bachelor of Engineering (Hons)",       detail:"B.Eng (Hons) — Federal University of Technology Owerri, 1995" },
+  { tag:"Academic Degree",           title:"Executive Master of Business Administration", detail:"MBA — Lagos Business School, Pan Atlantic University, 2006" },
+  { tag:"Academic Degree",           title:"Doctor of Philosophy (Hons)",           detail:"PhD (Hons) — Walden University, USA / Commonwealth University, Belize, 2012" },
+  { tag:"Professional Certification",title:"Certified Facility Manager (CFM)",      detail:"IFMA International — the global gold standard in FM credentials" },
+  { tag:"Professional Fellowship",   title:"Fellow, Chartered Management Institute",detail:"FCMI — UK Chartered Body for management professionals" },
+  { tag:"Professional Certification",title:"Facility Management Professional (FMP)",detail:"FMP — IFMA International" },
+  { tag:"Professional Fellowship",   title:"Fellow, Nigerian Society of Engineers", detail:"FNSE — 21st NSE Fellowship Conferment, 2022" },
+  { tag:"Professional Fellowship",   title:"Fellow, Institute of Brand Management of Nigeria", detail:"FIBMN" },
+  { tag:"Academic Role",             title:"Adjunct Lecturer",                       detail:"Masters in Facilities Management — University of Lagos, appointed 2014" },
+];
+
+const personalAwards = [
+  { year:"2022", title:"Fellow — Nigerian Society of Engineers (FNSE)", body:"21st NSE Fellowship Conferment — one of the highest professional honours in Nigerian engineering." },
+  { year:"2018", title:"AI Acquisition International UK — CEO of the Year", body:"Excellence Award — Facility Management category, recognising outstanding leadership in FM." },
+  { year:"2018", title:"African FM Personality of the Year", body:"African Price For Leadership Awards — recognising continental leadership in facilities management." },
+  { year:"2018", title:"Real Estate Excellence Award — FM CEO of the Year", body:"Real Estate Excellence Award Nigeria — FM sector leadership." },
+  { year:"2018", title:"NSE Ikeja Branch Award of Excellence", body:"Nigerian Society of Engineers, Ikeja Branch." },
+  { year:"2018", title:"NSE Akure Branch Award of Excellence", body:"Nigerian Society of Engineers, Akure Branch." },
+  { year:"2018", title:"Gbagada Comprehensive Secondary School Award of Excellence", body:"In recognition of service and community leadership." },
+  { year:"2018", title:"President — Pan African Direct Marketing Standards Board", body:"Elected President 2018–2020." },
+  { year:"2018", title:"Leadership Award — Unified Nigerian Youth Forum", body:"In recognition of youth leadership and mentorship across Nigeria." },
+  { year:"2018", title:"Award of Service to the Nation", body:"Presented by the Congress of Nigerian Youth." },
+  { year:"2017", title:"Award of Excellence — University of Lagos", body:"In recognition of leadership position in the FM Industry in Nigeria." },
+  { year:"2016", title:"Top 50 Nigerian Professionals", body:"Listed among the Top 50 Nigerian Professionals of 2016." },
+  { year:"2016", title:"Top 50 CEOs in Nigeria", body:"Recognised among Nigeria's most influential chief executives." },
+  { year:"2016", title:"NANS Leadership Award", body:"National Association of Nigerian Students." },
+  { year:"2016", title:"NAPS Leadership Award", body:"National Association of Nigerian Professionals." },
+  { year:"2015", title:"Nigerian Selfless Service Gold Award", body:"Awarded by Majesty Global Publications for selfless service to Nigeria." },
+  { year:"2013", title:"Nigerian Top Leaders International Magazine — Global Lifetime Achievement Gold", body:"Global Lifetime Achievement International Gold Award." },
+  { year:"2013", title:"Time News — Excellence Gold Award for Economic Development of Nigeria", body:"Recognising contribution to Nigeria's economic growth." },
+  { year:"2012", title:"Corporate & Media Africa — Meritorious Diamond Award for National Development", body:"Meritorious Diamond Award in recognition of contribution to national development." },
+  { year:"2012", title:"Honorary Doctorate Award", body:"Commonwealth University, Belize — Doctor of Management." },
+  { year:"2001", title:"Peugeot Automobile Nigeria — Technical Adviser of the Year", body:"Won the prestigious PAN Technical Adviser of the Year award and Manager of the Year (1999 & 2000) at CFAO." },
+];
+
+const companyAwards = [
+  { year:"2018", title:"AI Acquisition International UK — Best FM Company of the Year", body:"Property & Facility Management category — international recognition for GPFI." },
+  { year:"2018", title:"Real Estate Excellence Award — Best FM Company of the Year", body:"Real Estate Excellence Award Nigeria." },
+  { year:"2018", title:"2018 World Global Quality Award — FM Category Africa", body:"Global recognition for quality in facilities management across Africa." },
+  { year:"2018", title:"ISO 9001:2015 Quality Standards Certification", body:"International quality management standard certification for GPFI." },
+  { year:"2017", title:"Most Innovative FM Company", body:"Recognised for innovation in facilities management practice and delivery." },
+  { year:"2017", title:"2017 Global Quality Award Nigeria", body:"National recognition for quality in FM services." },
+  { year:"2017", title:"2017 International Quality Award", body:"International recognition for quality standards and service delivery." },
+  { year:"2015", title:"European CEO — Best FM Company of the Year", body:"Best FM Company of the Year — continental recognition from European CEO publication." },
+  { year:"2012", title:"Best FM Company in Africa", body:"Led GPFI to receive the Best FM Company in Africa award." },
+];
+
+const memberships = [
+  "Fellow — Nigerian Society of Engineers (NSE)",
+  "Fellow — Chartered Management Institute (CMI), UK",
+  "Fellow — Institute of Brand Management of Nigeria",
+  "Fellow — Institute of Direct Marketing Nigeria",
+  "Member — Institute of Directors (IoD), Nigeria (Sep 2020 – Present)",
+  "Member — Council for the Regulation of Engineering in Nigeria (COREN)",
+  "Member — Nigerian Institute of Mechanical Engineers",
+  "Member — Nigeria Institute of Management",
+  "Member — Institute of Management Consulting",
+  "Member — Institute of Training & Development",
+  "Member — Institute of Administration, Nigeria",
+  "Member — International Committee for ISO Standards — Global FM Industry",
+  "Member — Nigeria National Committee for ISO Standards — Hotel Industry",
+  "Member — Rotary International since 1986 — Paul Harris Fellow",
+  "Member — Federal University of Technology, Owerri Alumni Association",
+  "Member & Past Class President — LBS Alumni Association, EMBA 10-2006",
+  "President — African Direct Marketing Standards Board (2018–2020)",
+  "Founder — African Facilities Management (LinkedIn), since 2014",
+  "Founder — African Facilities Management Institute",
+  "Patron — Southern Nigeria Youth Congress (2018)",
+  "National Steering Committee / Chairman, Publicity Committee — The FM Initiative (National FM Body, Nigeria)",
+  "Founder & Member — Doctor Muhammad Balogun (DMB) Foundation",
+  "National FM Initiative (The Nigerian FM Initiative) — Chairman, Media & Publicity Committee · Mar 2016 – Present",
+  "Member — Standard Organisation of Nigeria — National Mirror Committee on TC 267 (ISO Standards) · Jul 2020 – Present",
+  "Member, Governing Council — International Association of Research Scholars & Administrators (IARSA) · Oct 2019 – Present",
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.getElementById("timeline-items").innerHTML = timelineData.map(t => `
+    <div class="tl-item">
+      <div class="tl-year">${t.year}</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">${t.title}</div>
+        <span class="tl-org">${t.org}</span>
+        <p class="tl-desc">${t.desc}</p>
+      </div>
+    </div>`).join("");
+
+  document.getElementById("cred-grid").innerHTML = credData.map(c => `
+    <div class="cred-card">
+      <span class="cred-card-tag">${c.tag}</span>
+      <div class="cred-card-title">${c.title}</div>
+      <div class="cred-card-detail">${c.detail}</div>
+    </div>`).join("");
+
+  document.getElementById("personal-awards-grid").innerHTML = personalAwards.map(a => `
+    <div class="award-row">
+      <div class="award-year">${a.year}</div>
+      <div>
+        <div class="award-title">${a.title}</div>
+        <div class="award-body">${a.body}</div>
+      </div>
+    </div>`).join("");
+
+  document.getElementById("company-awards-grid").innerHTML = companyAwards.map(a => `
+    <div class="award-row">
+      <div class="award-year">${a.year}</div>
+      <div>
+        <div class="award-title">${a.title}</div>
+        <div class="award-body">${a.body}</div>
+      </div>
+    </div>`).join("");
+
+  document.getElementById("mem-list").innerHTML = memberships.map(m =>
+    `<span class="mem-tag">${m}</span>`
+  ).join("");
+
+});
+</script>
+</body>
+</html>
+<script>
+// Awards Carousel upgrade — injected after page load
+document.addEventListener("DOMContentLoaded", () => {
+  // After the main DOMContentLoaded, upgrade awards sections to carousels
+  setTimeout(() => {
+    upgradeToCarousel("personal-awards-grid", "personal");
+    upgradeToCarousel("company-awards-grid", "company");
+  }, 100);
+});
+
+function upgradeToCarousel(gridId, prefix) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+  const cards = Array.from(grid.children);
+  if (cards.length <= 4) return; // No need for carousel if few items
+
+  // Wrap in carousel structure
+  const wrap = document.createElement("div");
+  wrap.className = "award-carousel";
+  wrap.id = `carousel-${prefix}`;
+
+  const track = document.createElement("div");
+  track.className = "award-carousel-track";
+  track.id = `track-${prefix}`;
+
+  cards.forEach(card => {
+    const slide = document.createElement("div");
+    slide.className = "award-slide";
+    slide.appendChild(card.cloneNode(true));
+    track.appendChild(slide);
+  });
+
+  const dots = document.createElement("div");
+  dots.className = "carousel-dots";
+  dots.id = `dots-${prefix}`;
+
+  const perPage = window.innerWidth < 768 ? 1 : 2;
+  const totalPages = Math.ceil(cards.length / perPage);
+  for (let i = 0; i < totalPages; i++) {
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+    dot.addEventListener("click", () => goToPage(prefix, i, perPage));
+    dots.appendChild(dot);
+  }
+
+  const prev = document.createElement("button");
+  prev.className = "carousel-arrow carousel-prev";
+  prev.innerHTML = "←";
+  prev.addEventListener("click", () => shiftPage(prefix, -1, perPage, totalPages));
+
+  const next = document.createElement("button");
+  next.className = "carousel-arrow carousel-next";
+  next.innerHTML = "→";
+  next.addEventListener("click", () => shiftPage(prefix, 1, perPage, totalPages));
+
+  wrap.appendChild(prev);
+  wrap.appendChild(track);
+  wrap.appendChild(next);
+
+  grid.parentNode.insertBefore(wrap, grid);
+  grid.parentNode.insertBefore(dots, grid.nextSibling);
+  grid.style.display = "none";
+
+  wrap._currentPage = 0;
+  wrap._perPage = perPage;
+  wrap._total = totalPages;
+  updateCarouselView(prefix, 0, perPage);
+}
+
+function goToPage(prefix, page, perPage) {
+  const wrap = document.getElementById(`carousel-${prefix}`);
+  wrap._currentPage = page;
+  updateCarouselView(prefix, page, perPage);
+}
+
+function shiftPage(prefix, dir, perPage, total) {
+  const wrap = document.getElementById(`carousel-${prefix}`);
+  const next = (wrap._currentPage + dir + total) % total;
+  wrap._currentPage = next;
+  updateCarouselView(prefix, next, perPage);
+}
+
+function updateCarouselView(prefix, page, perPage) {
+  const track = document.getElementById(`track-${prefix}`);
+  const dots = document.getElementById(`dots-${prefix}`);
+  if (!track) return;
+  const slideW = track.parentElement.offsetWidth - 80;
+  const offset = page * perPage * (slideW / perPage + 20);
+  track.style.transform = `translateX(-${page * (100 / perPage) * perPage}%)`;
+  // Simpler: set via left offset on track
+  track.style.transform = `translateX(-${page * 100}%)`;
+  if (dots) {
+    Array.from(dots.children).forEach((d, i) => d.classList.toggle("active", i === page));
+  }
+}
+</script>
