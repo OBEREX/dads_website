@@ -86,7 +86,17 @@ function renderFooter() {
 }
 
 function toggleMobileNav() {
-  document.getElementById("navLinks").classList.toggle("open");
+  const links = document.getElementById("navLinks");
+  const toggle = document.querySelector(".nav-toggle");
+  links.classList.toggle("open");
+  // Animate hamburger to X
+  toggle.classList.toggle("open");
+}
+
+function closeMobileNav() {
+  document.getElementById("navLinks").classList.remove("open");
+  const toggle = document.querySelector(".nav-toggle");
+  if(toggle) toggle.classList.remove("open");
 }
 
 // Sticky navbar shadow on scroll
@@ -97,6 +107,17 @@ window.addEventListener("scroll", () => {
 
 // Inject all components
 document.addEventListener("DOMContentLoaded", () => {
+  // Close mobile nav on outside click
+  document.addEventListener("click", (e) => {
+    const nav = document.getElementById("navLinks");
+    const toggle = document.querySelector(".nav-toggle");
+    if(nav && nav.classList.contains("open")) {
+      if(!nav.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
+        closeMobileNav();
+      }
+    }
+  });
+
   document.querySelectorAll("[data-component]").forEach(el => {
     switch (el.dataset.component) {
       case "topbar":  el.innerHTML = renderTopbar();  break;

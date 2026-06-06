@@ -119,4 +119,3 @@ When implementing in WordPress:
 ---
 
 *Generated for mkobalogun.com redesign project — 2025*
-"# dads_website" 

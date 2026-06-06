@@ -61,6 +61,30 @@
     .ap-arrow{color:rgba(200,185,122,.5);font-size:18px;margin-left:auto;}
     @media(max-width:1024px){.platforms-grid{grid-template-columns:1fr;}.yt-feature{grid-template-columns:1fr;}.yt-feature-right{display:none;}.ig-grid{grid-template-columns:repeat(4,1fr);}.all-grid{grid-template-columns:1fr 1fr;}.stats-bar-5{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:640px){.ig-grid{grid-template-columns:repeat(3,1fr);}.all-grid{grid-template-columns:1fr;}}
+
+    @media(max-width:1024px){
+      .platforms-grid{grid-template-columns:1fr;}
+      .yt-feature{grid-template-columns:1fr;}
+      .yt-feature-right{display:none;}
+      .ig-grid{grid-template-columns:repeat(4,1fr);}
+      .all-grid{grid-template-columns:1fr 1fr;}
+      .stats-bar-5{grid-template-columns:repeat(2,1fr);}
+      .linkedin-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:768px){
+      .platforms-section,.ig-section,.linkedin-section,.all-platforms{padding:44px 20px;}
+      .yt-feature-left{padding:44px 20px;}
+      .platform-header{flex-wrap:wrap;gap:12px;}
+      .ig-grid{grid-template-columns:repeat(3,1fr);}
+      .ig-follow-row{flex-direction:column;gap:14px;}
+      .all-grid{grid-template-columns:1fr;}
+      .newsletter-strip{padding:36px 20px;}
+    }
+    @media(max-width:480px){
+      .ig-grid{grid-template-columns:repeat(3,1fr);}
+      .stats-bar-5{grid-template-columns:repeat(2,1fr);}
+      .p-count{font-size:22px;}
+    }
   </style>
 </head>
 <body>

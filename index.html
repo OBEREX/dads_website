@@ -38,6 +38,7 @@
     .ventures-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.06); border-radius:3px; overflow:hidden; }
     .venture-card { background:var(--navy); padding:40px 31px; border-right:1px solid rgba(255,255,255,0.06); transition:background 0.25s; text-decoration:none; display:block; color:inherit; }
     .venture-card:last-child { border-right:none; }
+    .venture-card:nth-child(3n){ border-right:none; }
     .venture-card:hover { background:var(--navy-mid); }
     .venture-icon { width:40px; height:40px; border:1px solid rgba(200,185,122,0.35); border-radius:2px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
     .venture-icon svg { width:18px; height:18px; stroke:var(--gold); fill:none; stroke-width:1.5; }
@@ -68,13 +69,30 @@
       .hero-img-panel { display:none; }
       .hero h1 { font-size:44px; }
       .about-strip { grid-template-columns:1fr; }
-      .ventures-grid { grid-template-columns:1fr; }
+      .ventures-grid { grid-template-columns:1fr 1fr; }
       .pub-grid { grid-template-columns:1fr 1fr; }
       .yt-strip { grid-template-columns:1fr; }
       .yt-right { min-height:240px; }
+      .social-strip { flex-direction:column; gap:20px; }
     }
-    @media(max-width:640px){
+    @media(max-width:768px){
+      .hero { padding:36px 20px; }
+      .hero h1 { font-size:34px; }
+      .hero-desc { font-size:13px; }
+      .about-left,.about-right { padding:44px 20px; }
+      .ventures { padding:44px 20px; }
+      .ventures-grid { grid-template-columns:1fr; }
+      .venture-card { border-right:none !important; border-bottom:1px solid rgba(255,255,255,0.06); padding:28px 20px; }
+      .publications { padding:44px 20px; }
       .pub-grid { grid-template-columns:1fr; }
+      .yt-left { padding:44px 20px; }
+      .social-strip { padding:36px 20px; }
+      .social-icons { flex-wrap:wrap; gap:8px; }
+      .soc-btn { font-size:11px; padding:8px 14px; }
+    }
+    @media(max-width:480px){
+      .hero h1 { font-size:28px; }
+      .about-quote { font-size:16px; }
     }
   </style>
 </head>
@@ -116,7 +134,7 @@
 <!-- ABOUT STRIP -->
 <div class="about-strip">
   <div class="about-left">
-    <span class="section-tag">Who is Dr. Balogun</span>
+    <span class="section-tag">Who is Dr. MKO Balogun</span>
     <h2 class="section-title">A Legacy of<br>Leadership &amp; Impact</h2>
     <div class="divider"></div>
     <p class="body-text">Born in Ibadan, Dr. Muhammad Kassim Olatunde Balogun holds a B.Eng (Hons), MBA, and PhD (Hons) alongside globally recognised certifications in Facilities Management. He is the Group MD/CEO of GPFI and founder of the DMB Foundation.</p>
@@ -128,11 +146,11 @@
     <h2 class="section-title">What He<br>Stands For</h2>
     <div class="divider"></div>
     <div class="about-pills">
-      <span class="pill">Facilities Management</span><span class="pill">Smart Cities</span>
-      <span class="pill">Urban Renewal</span><span class="pill">Entrepreneurship</span>
-      <span class="pill">Mentorship</span><span class="pill">Real Estate</span>
-      <span class="pill">Engineering</span><span class="pill">Community Development</span>
-      <span class="pill">Leadership</span><span class="pill">Sustainability</span>
+      <span class="pill">Facilities Management</span><span class="pill">Engineering</span>
+      <span class="pill">Smart Cities</span><span class="pill">Real Estate</span>
+      <span class="pill">Urban Renewal</span><span class="pill">Leadership</span>
+      <span class="pill">Entrepreneurship</span><span class="pill">Mentorship</span>
+      <span class="pill">Community Development</span><span class="pill">Sustainability</span>
     </div>
     <blockquote class="about-quote">"On my honour, I promise to do my best — to help other people at all times with all the resources at my disposal."</blockquote>
   </div>
@@ -148,26 +166,7 @@
     </div>
     <a href="pages/ventures.html" class="see-all-light">See all ventures →</a>
   </div>
-  <div class="ventures-grid">
-    <a href="pages/ventures.html#gpfi" class="venture-card">
-      <div class="venture-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg></div>
-      <div class="venture-name">GPFI Group</div>
-      <p class="venture-desc">Global Property &amp; Facilities International — a leading integrated real estate and facilities management firm across Nigeria and Africa.</p>
-      <span class="venture-link">Visit GPFI →</span>
-    </a>
-    <a href="pages/ventures.html#consulting" class="venture-card">
-      <div class="venture-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-      <div class="venture-name">DMB Consulting</div>
-      <p class="venture-desc">Expert advisory in facilities management, engineering, and sustainable urban development for corporations and government bodies.</p>
-      <span class="venture-link">Learn more →</span>
-    </a>
-    <a href="pages/ventures.html#foundation" class="venture-card">
-      <div class="venture-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
-      <div class="venture-name">DMB Foundation</div>
-      <p class="venture-desc">Founded 2017 to support women entrepreneurs and youth across Africa through mentorship, scholarships, and community development.</p>
-      <span class="venture-link">Foundation work →</span>
-    </a>
-  </div>
+  <div class="ventures-grid" id="ventures-grid-home"></div>
 </section>
 
 <!-- PUBLICATIONS -->
@@ -249,6 +248,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("home-social-icons").innerHTML = Object.entries(socialNames).map(([key, name]) =>
     `<a href="${CONFIG.social[key]}" target="_blank" rel="noopener" class="soc-btn">${socialIcons[key]} ${name}</a>`
   ).join("");
+
+  // Ventures grid — 5 companies
+  const venturesData = [
+    { href:"pages/ventures.html#gpfi",        icon:`<rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/>`,                          name:"GPFI Group",       desc:"Global Property & Facilities International — a leading integrated real estate and FM firm with operations across 8 African countries.", link:"Visit GPFI →" },
+    { href:"pages/ventures.html#dmbgroup",    icon:`<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>`,           name:"DMB Group",        desc:"The parent group encompassing Dr. Balogun's business interests in real estate, consulting, and investment across Nigeria and Africa.", link:"Learn more →" },
+    { href:"pages/ventures.html#csm",         icon:`<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>`, name:"CSM",           desc:"City Smart Management — delivering smart city infrastructure solutions, building management systems, and sustainable urban technologies.", link:"Learn more →" },
+    { href:"pages/ventures.html#consulting",  icon:`<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>`,                                                            name:"DMB Consulting",   desc:"Expert advisory in facilities management, engineering, and sustainable urban development for corporations and government bodies.", link:"Learn more →" },
+    { href:"pages/ventures.html#foundation",  icon:`<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>`, name:"DMB Foundation", desc:"Founded 2017 to support women entrepreneurs and youth across Africa through mentorship, scholarships, and community development.", link:"Foundation work →" },
+  ];
+  document.getElementById("ventures-grid-home").innerHTML = venturesData.map(v=>`
+    <a href="${v.href}" class="venture-card">
+      <div class="venture-icon"><svg viewBox="0 0 24 24" stroke-width="1.5">${v.icon}</svg></div>
+      <div class="venture-name">${v.name}</div>
+      <p class="venture-desc">${v.desc}</p>
+      <span class="venture-link">${v.link}</span>
+    </a>`).join("");
 
   // YouTube featured
   YouTubeAPI.renderFeatured("home-yt-featured");

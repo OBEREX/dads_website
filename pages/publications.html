@@ -76,6 +76,36 @@
       .pub-grid-3 { grid-template-columns:1fr; }
       .reviews-grid { grid-template-columns:1fr 1fr; }
     }
+
+    @media(max-width:1024px){
+      .featured-card{grid-template-columns:1fr;}
+      .featured-img{display:none;}
+      .pub-grid-3{grid-template-columns:1fr 1fr;}
+      .reviews-grid{grid-template-columns:1fr 1fr;}
+      .blog-grid{grid-template-columns:1fr;}
+      .speech-row{grid-template-columns:60px 1fr;gap:16px;}
+      .speech-row .speech-action{grid-column:2;padding-left:0;}
+      .filter-bar{flex-direction:column;align-items:flex-start;gap:0;}
+      .search-input{width:100%;margin:0;border-top:1px solid var(--border);}
+    }
+    @media(max-width:768px){
+      .featured-section{padding:44px 20px;}
+      .featured-content{padding:28px 20px;}
+      .articles-section,.speeches-section,.reviews-section,.blog-section{padding:44px 20px;}
+      .pub-grid-3{grid-template-columns:1fr;}
+      .reviews-grid{grid-template-columns:1fr 1fr;}
+      .speech-row{padding:20px 16px;grid-template-columns:52px 1fr;}
+      .speech-title{font-size:15px;}
+      .featured-title{font-size:22px;}
+      .newsletter-strip{padding:36px 20px;}
+    }
+    @media(max-width:480px){
+      .reviews-grid{grid-template-columns:1fr;}
+      .speech-row{grid-template-columns:1fr;}
+      .speech-year{display:none;}
+      .filter-tabs{gap:0;}
+      .ftab{padding:14px 14px;font-size:10px;}
+    }
   </style>
 </head>
 <body>

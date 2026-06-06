@@ -68,6 +68,36 @@
       .tl-dot{left:73px;}
     }
     @media(max-width:640px){.cred-grid{grid-template-columns:1fr;}}
+
+    @media(max-width:1024px){
+      .about-hero-grid { grid-template-columns:1fr; gap:36px; }
+      .bio-section { grid-template-columns:1fr; }
+      .bio-left,.bio-right { padding:44px 24px; }
+      .cred-grid { grid-template-columns:1fr 1fr; }
+      .awards-grid { grid-template-columns:1fr; }
+      .timeline::before { left:80px; }
+      .tl-item { grid-template-columns:80px 1fr; }
+      .tl-dot { left:73px; }
+    }
+    @media(max-width:768px){
+      .about-hero-grid { gap:22px; }
+      .photo-card { max-width:260px; }
+      .bio-left,.bio-right { padding:36px 20px; }
+      .timeline-section,.awards-section,.mem-section { padding:44px 20px; }
+      .cred-section { padding:44px 20px; }
+      .cred-grid { grid-template-columns:1fr; }
+      .awards-grid { grid-template-columns:1fr; }
+      .award-carousel { padding:0 32px; }
+      .tl-title { font-size:17px; }
+      .mem-list { gap:8px; }
+      .mem-tag { padding:8px 14px; font-size:11px; }
+    }
+    @media(max-width:480px){
+      .timeline::before { left:60px; }
+      .tl-item { grid-template-columns:60px 1fr; }
+      .tl-dot { left:53px; }
+      .tl-year { font-size:12px; padding-right:16px; }
+    }
   </style>
 </head>
 <body>

@@ -72,6 +72,30 @@
       .downloads-grid { grid-template-columns:1fr; }
       .press-grid { grid-template-columns:1fr; }
     }
+
+    @media(max-width:1024px){
+      .yt-hero-grid{grid-template-columns:1fr;}
+      .yt-hero-right{display:none;}
+      .video-grid{grid-template-columns:1fr 1fr;}
+      .ig-grid{grid-template-columns:repeat(4,1fr);}
+      .downloads-grid{grid-template-columns:1fr 1fr;}
+      .press-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:768px){
+      .yt-hero-left{padding:44px 20px;}
+      .video-grid-section,.gallery-section,.downloads-section,.press-section{padding:44px 20px;}
+      .video-grid{grid-template-columns:1fr;}
+      .ig-grid{grid-template-columns:repeat(3,1fr);}
+      .ig-follow-row{flex-direction:column;gap:14px;}
+      .downloads-grid{grid-template-columns:1fr;}
+      .press-grid{grid-template-columns:1fr;}
+      .media-tabs{padding:0 16px;}
+      .mtab{padding:14px 14px;font-size:11px;}
+    }
+    @media(max-width:480px){
+      .ig-grid{grid-template-columns:repeat(3,1fr);}
+      .video-thumb{height:140px;}
+    }
   </style>
 </head>
 <body>
