@@ -1,0 +1,13 @@
+/*
+Theme Name: MKO Balogun
+Theme URI: https://mkobalogun.com
+Author: MKO Balogun Website
+Description: Custom theme for Dr. MKO Balogun — navy/gold editorial design. Ported from the static redesign (exact visuals).
+Version: 1.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Text Domain: mkobalogun
+*/
+
+/* The actual styles are loaded from assets/css/main.css (and home.css on the homepage)
+   via functions.php. This file only carries the theme header WordPress requires. */

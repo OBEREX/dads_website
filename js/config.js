@@ -17,7 +17,7 @@ const CONFIG = {
   social: {
     linkedin:  "https://linkedin.com/in/mkobalogun",
     twitter:   "https://twitter.com/mkobalogun",
-    facebook:  "https://facebook.com/mkobalogun",
+    facebook:  "https://www.facebook.com/mko.balogun.5",
     instagram: "https://instagram.com/mkobalogun",
     youtube:   "https://youtube.com/@mkobalogun",
     pinterest: "https://pinterest.com/mkobalogun",
@@ -28,6 +28,14 @@ const CONFIG = {
     apiKey:    "YOUR_YOUTUBE_API_KEY",
     channelId: "YOUR_YOUTUBE_CHANNEL_ID",
     maxResults: 6,
+  },
+
+  // Contact form — Formspree
+  // 1. Sign up at https://formspree.io and create a new form.
+  // 2. Copy the form's ID (the part after /f/ in the endpoint URL).
+  // 3. Paste it below. Until then, submissions log to the console.
+  forms: {
+    formspreeId: "xwvjjnkw",
   },
 
   instagram: {

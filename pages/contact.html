@@ -246,17 +246,49 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
 });
 
-function handleSubmit(e){
+async function handleSubmit(e){
   e.preventDefault();
   const form = e.target;
-  const data = Object.fromEntries(new FormData(form));
-  // In production: POST to your backend or use a service like Formspree / EmailJS
-  // Example: fetch('https://formspree.io/f/YOUR_FORM_ID', { method:'POST', body: JSON.stringify(data), headers:{'Content-Type':'application/json'} })
-  console.log("Form submission:", data);
+  const formData = new FormData(form);
+  const btn = form.querySelector(".btn-submit");
+  const successMsg = document.getElementById("success-msg");
+  const formspreeId = CONFIG.forms && CONFIG.forms.formspreeId;
+
+  // No Formspree ID yet — fall back to logging so the form still "works" in preview.
+  if (!formspreeId || formspreeId === "YOUR_FORMSPREE_ID") {
+    console.log("Form submission (Formspree not configured):", Object.fromEntries(formData));
+    showSuccess(form, successMsg);
+    return;
+  }
+
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" },
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.errors ? err.errors.map(x => x.message).join(", ") : "Submission failed");
+    }
+    showSuccess(form, successMsg);
+  } catch (err) {
+    console.warn("Form submission error:", err);
+    btn.disabled = false;
+    btn.textContent = originalText;
+    alert("Sorry — your message could not be sent. Please try again, or email us directly at " + CONFIG.site.email + ".");
+  }
+}
+
+function showSuccess(form, successMsg){
   form.style.opacity = "0.5";
   form.style.pointerEvents = "none";
-  document.getElementById("success-msg").style.display = "block";
-  document.getElementById("success-msg").scrollIntoView({behavior:"smooth"});
+  successMsg.style.display = "block";
+  successMsg.scrollIntoView({behavior:"smooth"});
 }
 </script>
 </body>

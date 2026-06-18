@@ -67,12 +67,16 @@ Replace the silhouette placeholders by adding images:
 - About photo: set background-image on `.photo-card`
 - Any section can use a CSS `background-image` for fast loading
 
-### 5. Contact Form
-The contact form currently logs submissions to the console.
-To make it live, choose one of:
-- **Formspree** (free): Replace the `handleSubmit` function with a fetch to `https://formspree.io/f/YOUR_ID`
-- **EmailJS** (free tier): Use EmailJS SDK to send directly from the browser
-- **WordPress**: When migrating, use the **WPForms** or **Contact Form 7** plugin instead
+### 5. Contact Form (Formspree)
+The contact form on `pages/contact.html` submits via **Formspree**. The integration is already wired up — you only need a form ID:
+1. Sign up at [formspree.io](https://formspree.io) (free tier: 50 submissions/month).
+2. Create a new form. The endpoint looks like `https://formspree.io/f/xxxxxxx`.
+3. Copy the ID (the part after `/f/`) into `CONFIG.forms.formspreeId` in `js/config.js`.
+4. Submit the form once to receive Formspree's activation email, then click the confirmation link.
+
+> **Note:** Until a real ID is set (placeholder `YOUR_FORMSPREE_ID`), submissions log to the console — the form still works in preview. On success the green confirmation shows; on failure the user is prompted to email directly.
+
+**Alternatives:** EmailJS (browser-only sending), or when migrating to **WordPress**, use the **WPForms** or **Contact Form 7** plugin instead.
 
 ### 6. Adding New Blog Posts
 Open `data/content.js` and add to the `CONTENT.blogPosts` array:
