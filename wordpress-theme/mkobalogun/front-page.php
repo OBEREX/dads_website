@@ -10,9 +10,9 @@ get_header();
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <span class="hero-tag">Engineer &middot; Entrepreneur &middot; Mentor</span>
+    <span class="hero-tag">Sustainable Development Expert &middot; Entrepreneur &middot; Teacher</span>
     <h1>Building <em>Smarter</em><br>Cities &amp; Stronger<br>Communities</h1>
-    <p class="hero-desc">Dr. MKO Balogun is a PhD-holding engineer, facilities management expert, and serial entrepreneur driving sustainable urban development across Africa and beyond.</p>
+    <p class="hero-desc">Dr. MKO Balogun is an engineer, ESG, Green Building, sustainable cities, facilities management expert, and serial entrepreneur driving sustainable urban development across Africa and beyond.</p>
     <div class="hero-actions">
       <a href="<?php echo esc_url(home_url('/about/')); ?>" class="btn-primary">View Profile</a>
       <a href="<?php echo esc_url($cfg['social']['youtube']); ?>" target="_blank" rel="noopener" class="btn-ghost">Watch on YouTube &rarr;</a>
@@ -30,7 +30,7 @@ get_header();
 </section>
 
 <!-- STATS BAR -->
-<div class="stats-bar" style="grid-template-columns:repeat(4,1fr);">
+<div class="stats-bar">
   <div class="stat-item"><span class="stat-num"><?php echo esc_html(str_replace(',000', '', $cfg['stats']['total_followers'])); ?><span>,000</span></span><span class="stat-label">Social followers</span></div>
   <div class="stat-item"><span class="stat-num"><?php echo esc_html($cfg['stats']['awards']); ?></span><span class="stat-label">Awards &amp; honours</span></div>
   <div class="stat-item"><span class="stat-num"><?php echo esc_html($cfg['stats']['companies']); ?></span><span class="stat-label">Companies led</span></div>
@@ -70,16 +70,16 @@ get_header();
       <h2 class="section-title" style="color:var(--white);">His Companies &amp; Initiatives</h2>
       <div class="divider"></div>
     </div>
-    <a href="<?php echo esc_url(home_url('/ventures/')); ?>" class="see-all-light">See all ventures &rarr;</a>
+    <a href="<?php echo esc_url(home_url('/work-ventures/')); ?>" class="see-all-light">See all ventures &rarr;</a>
   </div>
   <div class="ventures-grid">
     <?php
     $ventures = [
-        ['href' => '/ventures/#gpfi',       'icon' => '<rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/>', 'name' => 'GPFI Group',     'desc' => 'Global Property &amp; Facilities International &mdash; a leading integrated real estate and FM firm with operations across 8 African countries.', 'link' => 'Visit GPFI &rarr;'],
-        ['href' => '/ventures/#dmbgroup',   'icon' => '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>', 'name' => 'DMB Group',      'desc' => 'The parent group encompassing Dr. Balogun\'s business interests in real estate, consulting, and investment across Nigeria and Africa.', 'link' => 'Learn more &rarr;'],
-        ['href' => '/ventures/#csm',        'icon' => '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>', 'name' => 'CSM',           'desc' => 'City Smart Management &mdash; delivering smart city infrastructure solutions, building management systems, and sustainable urban technologies.', 'link' => 'Learn more &rarr;'],
-        ['href' => '/ventures/#consulting', 'icon' => '<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>', 'name' => 'DMB Consulting', 'desc' => 'Expert advisory in facilities management, engineering, and sustainable urban development for corporations and government bodies.', 'link' => 'Learn more &rarr;'],
-        ['href' => '/ventures/#foundation', 'icon' => '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>', 'name' => 'DMB Foundation', 'desc' => 'Founded 2017 to support women entrepreneurs and youth across Africa through mentorship, scholarships, and community development.', 'link' => 'Foundation work &rarr;'],
+        ['href' => '/work-ventures/#gpfi',       'icon' => '<rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/>', 'name' => 'GPFI Group',     'desc' => 'Global Property &amp; Facilities International &mdash; a leading integrated real estate and FM firm with operations across 8 African countries.', 'link' => 'Visit GPFI &rarr;'],
+        ['href' => '/work-ventures/#dmbgroup',   'icon' => '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>', 'name' => 'DMB Group',      'desc' => 'The parent group encompassing Dr. Balogun\'s business interests in real estate, consulting, and investment across Nigeria and Africa.', 'link' => 'Learn more &rarr;'],
+        ['href' => '/work-ventures/#csm',        'icon' => '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>', 'name' => 'CSM',           'desc' => 'City Smart Management &mdash; delivering smart city infrastructure solutions, building management systems, and sustainable urban technologies.', 'link' => 'Learn more &rarr;'],
+        ['href' => '/work-ventures/#consulting', 'icon' => '<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>', 'name' => 'DMB Consulting', 'desc' => 'Expert advisory in facilities management, engineering, and sustainable urban development for corporations and government bodies.', 'link' => 'Learn more &rarr;'],
+        ['href' => '/work-ventures/#foundation', 'icon' => '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>', 'name' => 'DMB Foundation', 'desc' => 'Founded 2017 to support women entrepreneurs and youth across Africa through mentorship, scholarships, and community development.', 'link' => 'Foundation work &rarr;'],
     ];
     foreach ($ventures as $v) : ?>
       <a href="<?php echo esc_url(home_url($v['href'])); ?>" class="venture-card">
@@ -100,7 +100,7 @@ get_header();
       <h2 class="section-title">Latest Articles &amp; Insights</h2>
       <div class="divider"></div>
     </div>
-    <a href="<?php echo esc_url(home_url('/publications/')); ?>" class="see-all">View all &rarr;</a>
+    <a href="<?php echo esc_url(home_url('/publications-blog/')); ?>" class="see-all">View all &rarr;</a>
   </div>
   <div class="pub-grid">
     <?php

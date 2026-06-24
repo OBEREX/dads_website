@@ -84,7 +84,7 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; line-height: 1.1; 
 .btn-outline-gold:hover { border-color: var(--gold); }
 
 /* ── STATS BAR ── */
-.stats-bar { background: var(--white); display: grid; border-bottom: 1px solid var(--border); }
+.stats-bar { background: var(--white); display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--border); }
 .stat-item { padding: 31px 35px; border-right: 1px solid var(--border); text-align: center; }
 .stat-item:last-child { border-right: none; }
 .stat-num   { font-family: var(--serif); font-size: 46px; font-weight: 700; color: var(--navy); line-height: 1; display: block; }

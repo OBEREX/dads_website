@@ -1,0 +1,82 @@
+/* ── About page styles (was the <style> block inside about.html) ── */
+.about-hero-grid{display:grid;grid-template-columns:1fr 340px;gap:66px;align-items:center;}
+.photo-card{background:#1e3148;border:1px solid rgba(200,185,122,0.2);border-radius:3px;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;position:relative;}
+.photo-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.photo-silhouette{width:110px;height:185px;background:rgba(200,185,122,0.08);border-radius:55px 55px 18px 18px;position:relative;}
+.photo-silhouette::before{content:'';position:absolute;top:-44px;left:50%;transform:translateX(-50%);width:66px;height:66px;border-radius:50%;background:rgba(200,185,122,0.1);}
+.photo-badge{position:relative;z-index:1;background:rgba(15,28,46,0.92);border-top:1px solid rgba(200,185,122,0.2);padding:16px 20px;}
+.photo-badge p{margin:0 0 4px;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--white);}
+.photo-badge span{font-size:11px;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;}
+.creds-strip{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
+.cred-pill{background:rgba(200,185,122,0.1);border:1px solid rgba(200,185,122,0.2);border-radius:2px;padding:7px 14px;font-size:11px;color:var(--gold);letter-spacing:0.06em;text-align:center;}
+.bio-section{background:var(--white);display:grid;grid-template-columns:1fr 1fr;}
+.bio-left{padding:79px 44px;border-right:1px solid var(--border);}
+.bio-right{padding:79px 44px;background:var(--cream);}
+.philosophy-block{margin-bottom:28px;}
+.phil-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+.phil-quote{border-left:2px solid var(--gold);padding-left:20px;font-family:var(--serif);font-size:17px;font-style:italic;color:var(--navy);line-height:1.65;margin:0;}
+/* Timeline */
+.timeline-section{background:var(--cream);padding:79px 44px;}
+.timeline{margin-top:44px;position:relative;}
+.timeline::before{content:'';position:absolute;left:148px;top:0;bottom:0;width:1px;background:#e0dbd0;}
+.tl-item{display:grid;grid-template-columns:148px 1fr;margin-bottom:44px;position:relative;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-year{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--gold);padding-right:28px;text-align:right;padding-top:3px;line-height:1.4;}
+.tl-dot{position:absolute;left:141px;top:8px;width:15px;height:15px;border-radius:50%;background:var(--white);border:2px solid var(--gold);z-index:1;}
+.tl-content{padding-left:36px;}
+.tl-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.tl-org{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+.tl-desc{font-size:13px;color:#666;line-height:1.8;font-weight:300;}
+/* Credentials */
+.cred-section{background:var(--navy);padding:79px 44px;}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.cred-card{background:var(--navy-mid);border:1px solid rgba(200,185,122,0.12);border-radius:3px;padding:28px;transition:border-color .2s;}
+.cred-card:hover{border-color:rgba(200,185,122,0.35);}
+.cred-card-tag{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
+.cred-card-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:8px;}
+.cred-card-detail{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;}
+/* Awards */
+.awards-section{background:var(--white);padding:79px 44px;}
+.awards-sub{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy);margin:44px 0 20px;}
+.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.award-row{display:flex;align-items:flex-start;gap:18px;padding:20px;border:1px solid var(--border);border-radius:2px;transition:border-color .2s;}
+.award-row:hover{border-color:var(--gold);}
+.award-year{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold);line-height:1;min-width:44px;flex-shrink:0;}
+.award-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:3px;line-height:1.4;}
+.award-body{font-size:11px;color:#888;font-weight:300;line-height:1.6;}
+/* Memberships */
+.mem-section{background:var(--cream);padding:79px 44px;}
+.mem-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px;}
+.mem-tag{border:1px solid #ddd;background:var(--white);padding:11px 20px;font-size:12px;color:#444;border-radius:2px;transition:border-color .2s,color .2s;}
+.mem-tag:hover{border-color:var(--gold);color:var(--navy);}
+@media(max-width:1024px){
+  .about-hero-grid{grid-template-columns:1fr;gap:36px;}
+  .photo-card{max-width:320px;}
+  .bio-section{grid-template-columns:1fr;}
+  .bio-left,.bio-right{padding:44px 24px;}
+  .cred-grid{grid-template-columns:1fr 1fr;}
+  .awards-grid{grid-template-columns:1fr;}
+  .timeline::before{left:80px;}
+  .tl-item{grid-template-columns:80px 1fr;}
+  .tl-dot{left:73px;}
+}
+@media(max-width:768px){
+  .about-hero-grid{gap:22px;}
+  .photo-card{max-width:260px;}
+  .bio-left,.bio-right{padding:36px 20px;}
+  .timeline-section,.awards-section,.mem-section{padding:44px 20px;}
+  .cred-section{padding:44px 20px;}
+  .cred-grid{grid-template-columns:1fr;}
+  .awards-grid{grid-template-columns:1fr;}
+  .award-carousel{padding:0 32px;}
+  .tl-title{font-size:17px;}
+  .mem-list{gap:8px;}
+  .mem-tag{padding:8px 14px;font-size:11px;}
+}
+@media(max-width:640px){.cred-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  .timeline::before{left:60px;}
+  .tl-item{grid-template-columns:60px 1fr;}
+  .tl-dot{left:53px;}
+  .tl-year{font-size:12px;padding-right:16px;}
+}

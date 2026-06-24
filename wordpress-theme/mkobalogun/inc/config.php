@@ -19,7 +19,7 @@ function mko_config() {
         'social' => [
             'linkedin'  => 'https://linkedin.com/in/mkobalogun',
             'twitter'   => 'https://twitter.com/mkobalogun',
-            'facebook'  => 'https://facebook.com/mkobalogun',
+            'facebook'  => 'https://www.facebook.com/mko.balogun.5',
             'instagram' => 'https://instagram.com/mkobalogun',
             'youtube'   => 'https://youtube.com/@mkobalogun',
             'pinterest' => 'https://pinterest.com/mkobalogun',
@@ -36,12 +36,16 @@ function mko_config() {
             'twitter_followers'     => '20K+',
             'instagram_followers'   => '20K+',
         ],
+        // Contact form. Formspree works now; or paste a WPForms shortcode in page-contact.php instead.
+        'forms' => [
+            'formspree_id' => 'xwvjjnkw',
+        ],
         // Top navigation. href values are relative to the site root.
         'nav' => [
             ['label' => 'Home',                'href' => '/'],
             ['label' => 'About',               'href' => '/about/'],
-            ['label' => 'Work & Ventures',     'href' => '/ventures/'],
-            ['label' => 'Publications & Blog', 'href' => '/publications/'],
+            ['label' => 'Work & Ventures',     'href' => '/work-ventures/'],
+            ['label' => 'Publications & Blog', 'href' => '/publications-blog/'],
             ['label' => 'Media',               'href' => '/media/'],
             ['label' => 'Connect',             'href' => '/connect/'],
         ],

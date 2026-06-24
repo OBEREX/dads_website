@@ -28,6 +28,15 @@ function mko_assets() {
     if (is_front_page()) {
         wp_enqueue_style('mko-home', get_template_directory_uri() . '/assets/css/home.css', ['mko-main'], '1.0');
     }
+
+    // Per-page styles: load assets/css/page-{slug}.css automatically if it exists.
+    if (is_page()) {
+        $slug = get_post_field('post_name', get_queried_object_id());
+        $rel  = "/assets/css/page-{$slug}.css";
+        if ($slug && file_exists(get_template_directory() . $rel)) {
+            wp_enqueue_style("mko-page-{$slug}", get_template_directory_uri() . $rel, ['mko-main'], '1.0');
+        }
+    }
     // Nav toggle + sticky-shadow behaviour
     wp_enqueue_script('mko-theme', get_template_directory_uri() . '/assets/js/theme.js', [], '1.0', true);
 }

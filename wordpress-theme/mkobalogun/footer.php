@@ -24,9 +24,9 @@ $year = date('Y');
     <div class="footer-col">
       <h4>Ventures</h4>
       <ul>
-        <li><a href="<?php echo esc_url(home_url('/ventures/#gpfi')); ?>">GPFI Group</a></li>
-        <li><a href="<?php echo esc_url(home_url('/ventures/#consulting')); ?>">DMB Consulting</a></li>
-        <li><a href="<?php echo esc_url(home_url('/ventures/#foundation')); ?>">DMB Foundation</a></li>
+        <li><a href="<?php echo esc_url(home_url('/work-ventures/#gpfi')); ?>">GPFI Group</a></li>
+        <li><a href="<?php echo esc_url(home_url('/work-ventures/#consulting')); ?>">DMB Consulting</a></li>
+        <li><a href="<?php echo esc_url(home_url('/work-ventures/#foundation')); ?>">DMB Foundation</a></li>
         <li><a href="https://globalpfi.com" target="_blank" rel="noopener">Global PFI</a></li>
       </ul>
     </div>

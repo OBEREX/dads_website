@@ -36,11 +36,13 @@ $cfg = mko_config();
   <ul class="nav-links" id="navLinks">
     <?php
     foreach ($cfg['nav'] as $item) {
-        $url    = home_url($item['href']);
-        $active = (untrailingslashit($_SERVER['REQUEST_URI']) === untrailingslashit($item['href'])) ? ' class="active"' : '';
-        printf('<li><a href="%s"%s>%s</a></li>', esc_url($url), $active, esc_html($item['label']));
+        $slug = trim($item['href'], '/');                 // '' for Home, 'about', 'work-ventures', ...
+        $is_active = ($slug === '') ? is_front_page() : is_page($slug);
+        $class = $is_active ? ' class="active"' : '';
+        printf('<li><a href="%s"%s>%s</a></li>', esc_url(home_url($item['href'])), $class, esc_html($item['label']));
     }
+    $contact_active = is_page('contact') ? ' active' : '';
     ?>
-    <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="nav-cta">Contact</a></li>
+    <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="nav-cta<?php echo $contact_active; ?>">Contact</a></li>
   </ul>
 </nav>
